@@ -1,0 +1,35 @@
+.header {
+  background-color: #414452;
+}
+
+.header__link-course,
+.header__link-login,
+.header__link-log-of {
+  color: white;
+}
+
+.header__title-block {
+  display: flex;
+  align-items: center;
+}
+
+.header__link-course {
+  font-size: 0.7em;
+}
+
+.header__link-course {
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.header__links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header__link-log-of {
+  margin-left: 30px;
+}
