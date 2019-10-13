@@ -1,4 +1,4 @@
 <section class="courses">
     <app-courses-section-actions></app-courses-section-actions>
-    <app-courses-list [coursesList]="coursesList"></app-courses-list>
+    <app-courses-list [coursesList]="coursesListPromise | async"></app-courses-list>
 </section>

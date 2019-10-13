@@ -6,7 +6,12 @@ import { CoursesListComponent } from './components/courses-list/courses-list.com
 import { CoursesItemComponent } from './components/courses-item/courses-item.component';
 
 @NgModule({
-  declarations: [CoursesComponent, CoursesSectionActionsComponent, CoursesListComponent, CoursesItemComponent],
+  declarations: [
+    CoursesComponent,
+    CoursesSectionActionsComponent,
+    CoursesListComponent,
+    CoursesItemComponent
+  ],
   imports: [
     CommonModule
   ],

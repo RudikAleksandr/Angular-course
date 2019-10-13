@@ -8,19 +8,13 @@ import { ICourse } from '../../interfaces';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  public coursesList: ICourse[];
+  public coursesListPromise: Promise<ICourse[]>;
 
   constructor(
     private coursesService: CoursesService
   ) { }
 
   ngOnInit() {
-    this.loadCourses();
-  }
-
-  loadCourses(): void {
-    this.coursesService.getCourses().then((coursesList: ICourse[]) => {
-      this.coursesList = coursesList;
-    });
+    this.coursesListPromise = this.coursesService.getCourses();
   }
 }

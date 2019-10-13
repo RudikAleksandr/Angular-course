@@ -1,4 +1,4 @@
-export const coursesList = [
+export const coursesList: Array<object> = [
   {
     id: '1',
     title: 'Courses 1. Name tag',
