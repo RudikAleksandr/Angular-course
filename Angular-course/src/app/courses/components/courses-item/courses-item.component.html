@@ -1,0 +1,17 @@
+<article class="courses-item container-fluid">
+  <div class="row">
+    <h2 class="courses-item__title col-md-12 col-lg-6">
+      <a href="#" class="courses-item__title-link">{{ course.title }}</a></h2>
+    <div class="courses-item___date-time col-md-12 col-lg-3">
+      <time class="courses-item__time">{{ course.duration }} min</time>
+      <time class="courses-item__date">{{ course.creationDate | date:'dd LLL yyyy' }}</time>
+    </div>
+  </div>
+  <div class="row">
+    <p class="courses-item___description col-sm-12 col-md-9 col-lg-9">{{ course.description }}</p>
+    <div class="courses-item___actions col-sm-12 col-md-3 col-lg-3">
+      <button class="courses-item___edit-btn btn">Edit</button>
+      <button class="courses-item___delete-btn btn">Delete</button>
+    </div>
+  </div>
+</article>

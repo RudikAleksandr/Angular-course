@@ -2,6 +2,11 @@
   background-color: #414452;
 }
 
+.header__row,
+.header__title {
+  height: 100%;
+}
+
 .header__link-course,
 .header__link-login,
 .header__link-log-of {
@@ -14,7 +19,7 @@
 }
 
 .header__link-course {
-  font-size: 0.7em;
+  font-size: 0.5em;
 }
 
 .header__link-course {

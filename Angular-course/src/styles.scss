@@ -1,11 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-$headerHeight: 70px;
-$footerHeight: 70px;
-$breadcrumbsHeight: 80px;
+$headerHeight: 60px;
+$footerHeight: 60px;
+$breadcrumbsHeight: 70px;
 $contentPadding: 0 5%;
 $contentMinHeight: calc(100vh - #{$headerHeight} - #{$footerHeight} - #{$breadcrumbsHeight});
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F2F3F7;
+}
 
 .content-padding {
   padding: $contentPadding;
@@ -26,4 +35,5 @@ $contentMinHeight: calc(100vh - #{$headerHeight} - #{$footerHeight} - #{$breadcr
 .breadcrumbs-height {
   height: $breadcrumbsHeight;
 }
+
 
