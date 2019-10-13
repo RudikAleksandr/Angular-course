@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ICourse } from '../../interfaces';
 
 @Component({
   selector: 'app-courses-list',
@@ -6,13 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses-list.component.scss']
 })
 export class CoursesListComponent implements OnInit {
-  public coursesList: any[] = [
-
-  ];
+  @Input() public coursesList: ICourse[];
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

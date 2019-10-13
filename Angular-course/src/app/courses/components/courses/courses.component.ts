@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from '../../services';
+import { ICourse } from '../../interfaces';
 
 @Component({
   selector: 'app-courses',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
+  public coursesList: ICourse[];
 
-  constructor() { }
+  constructor(
+    private coursesService: CoursesService
+  ) { }
 
   ngOnInit() {
+    this.loadCourses();
   }
 
+  loadCourses(): void {
+    this.coursesService.getCourses().then((coursesList: ICourse[]) => {
+      this.coursesList = coursesList;
+    });
+  }
 }

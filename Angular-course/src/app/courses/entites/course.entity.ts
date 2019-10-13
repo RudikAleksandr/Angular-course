@@ -7,7 +7,7 @@ export class Course implements ICourse {
     duration: number;
     description: string;
 
-    constructor(course: ICourse) {
+    constructor(course: any) {
         this.id = course.id;
         this.title = course.title;
         this.creationDate = course.creationDate;
