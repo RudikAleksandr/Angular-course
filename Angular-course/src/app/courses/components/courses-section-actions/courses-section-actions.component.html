@@ -1,8 +1,12 @@
 <div class="courses-section-actions container-fluid">
   <div class="courses-section-actions__row row">
     <div class="courses-section-actions__search col-10 col-sm-8 col-md-8 col-lg-6">
-      <input type="text" class="courses-section-actions__search-input" placeholder="Text to search">
-      <button class="courses-section-actions__search-btn btn">Search</button>
+      <input type="text" class="courses-section-actions__search-input"
+        placeholder="Text to search" [(ngModel)]="searchInputText">
+      <button class="courses-section-actions__search-btn btn"
+        (click)="onClickSearchButton()">
+        Search
+      </button>
     </div>
     <div class="courses-section-actions__add-course col col-sm-4 col-md col-lg">
         <button class="courses-section-actions__add-course-btn btn">+ Add course</button>

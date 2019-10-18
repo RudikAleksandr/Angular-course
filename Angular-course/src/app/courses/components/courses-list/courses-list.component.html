@@ -1,4 +1,8 @@
 <div class="courses-list">
-    <app-courses-item *ngFor="let course of coursesList" [course]="course"></app-courses-item>
+    <app-courses-item
+        *ngFor="let course of coursesList"
+        [course]="course"
+        (clickDeleteButton)="handlerClickDeleteButton($event)"
+    ></app-courses-item>
     <button class="courses-list__load-btn btn" >Load more</button>
 </div>

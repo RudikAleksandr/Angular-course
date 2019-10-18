@@ -17,4 +17,8 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
     this.coursesListPromise = this.coursesService.getCourses();
   }
+
+  handlerClickDeleteButton(idCourse: string): void {
+    console.log(idCourse);
+  }
 }

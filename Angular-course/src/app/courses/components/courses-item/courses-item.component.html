@@ -11,7 +11,7 @@
     <p class="courses-item___description col-sm-12 col-md-9 col-lg-9">{{ course.description }}</p>
     <div class="courses-item___actions col-sm-12 col-md-3 col-lg-3">
       <button class="courses-item___edit-btn btn">Edit</button>
-      <button class="courses-item___delete-btn btn">Delete</button>
+      <button class="courses-item___delete-btn btn" (click)="onClickDeleteButton()">Delete</button>
     </div>
   </div>
 </article>

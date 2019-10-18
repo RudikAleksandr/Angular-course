@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses-section-actions.component.scss']
 })
 export class CoursesSectionActionsComponent implements OnInit {
+  public searchInputText: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClickSearchButton(): void {
+    console.log(this.searchInputText);
+  }
 }
