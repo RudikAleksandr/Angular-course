@@ -7,7 +7,7 @@ import { coursesList } from 'jsonMockData/coursesList';
 })
 export class CoursesService {
 
-  getCourses(): Promise<Course[]> {
+  public getCourses(): Promise<Course[]> {
     return Promise.resolve(coursesList as Course[]);
   }
 }

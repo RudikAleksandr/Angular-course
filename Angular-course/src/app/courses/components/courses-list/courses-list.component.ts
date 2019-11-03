@@ -15,7 +15,7 @@ export class CoursesListComponent implements OnInit {
   ngOnInit() {
   }
 
-  handlerClickDeleteButton(idCourse: string): void {
+  public handlerClickDeleteButton(idCourse: string): void {
     this.clickDeleteButton.emit(idCourse);
   }
 }

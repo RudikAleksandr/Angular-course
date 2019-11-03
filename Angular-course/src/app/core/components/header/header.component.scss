@@ -1,40 +1,40 @@
 .header {
   background-color: #414452;
-}
 
-.header__row,
-.header__title {
-  height: 100%;
-}
-
-.header__link-course,
-.header__link-login,
-.header__link-log-of {
-  color: white;
-}
-
-.header__title-block {
-  display: flex;
-  align-items: center;
-}
-
-.header__link-course {
-  font-size: 0.5em;
-}
-
-.header__link-course {
-  text-transform: uppercase;
-  &:hover {
-    text-decoration: none;
+  &__row,
+  &__title {
+    height: 100%;
   }
-}
 
-.header__links {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+  &__link-course,
+  &__link-login,
+  &__link-log-of {
+    color: white;
+  }
 
-.header__link-log-of {
-  margin-left: 30px;
+  &__title-block {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link-course {
+    font-size: 0.5em;
+  }
+
+  &__link-course {
+    text-transform: uppercase;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__link-log-of {
+    margin-left: 30px;
+  }
 }

@@ -18,7 +18,7 @@ export class CoursesComponent implements OnInit {
     this.coursesListPromise = this.coursesService.getCourses();
   }
 
-  handlerClickDeleteButton(idCourse: string): void {
+  public handlerClickDeleteButton(idCourse: string): void {
     console.log(idCourse);
   }
 }

@@ -2,14 +2,15 @@
   display: flex;
   align-items: center;
   background-color: white;
+
+  &__item {
+    background-color: white;
+    margin: 0;
+  }
+
+  &__link {
+    color: #62646E;
+    font-weight: 500;
+  }
 }
 
-.breadcrumbs__item {
-  background-color: white;
-  margin: 0;
-}
-
-.breadcrumbs__link {
-  color: #62646E;
-  font-weight: 500;
-}

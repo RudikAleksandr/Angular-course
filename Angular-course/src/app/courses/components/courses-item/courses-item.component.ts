@@ -39,7 +39,7 @@ export class CoursesItemComponent implements
   ngAfterViewChecked() { console.log('OnChanges'); }
   ngOnDestroy() { console.log('OnChanges'); }
 
-  onClickDeleteButton(): void {
+  public onClickDeleteButton(): void {
     this.clickDeleteButton.emit(this.course.id);
   }
 }

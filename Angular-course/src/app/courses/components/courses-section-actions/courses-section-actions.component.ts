@@ -13,7 +13,7 @@ export class CoursesSectionActionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickSearchButton(): void {
+  public onClickSearchButton(): void {
     console.log(this.searchInputText);
   }
 }
