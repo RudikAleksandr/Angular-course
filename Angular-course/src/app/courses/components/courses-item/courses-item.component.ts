@@ -18,26 +18,13 @@ import { ICourse } from '../../interfaces';
   templateUrl: './courses-item.component.html',
   styleUrls: ['./courses-item.component.scss']
 })
-export class CoursesItemComponent implements
-  OnInit,
-  OnChanges,
-  AfterContentInit,
-  AfterContentChecked,
-  AfterViewInit,
-  AfterViewChecked,
-  OnDestroy {
+export class CoursesItemComponent implements OnInit {
   @Input() public course: ICourse;
   @Output() public clickDeleteButton: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { console.log('constructor'); }
+  constructor() { }
 
-  ngOnInit() { console.log('OnInit'); }
-  ngOnChanges() { console.log('OnChanges'); }
-  ngAfterContentInit() { console.log('OnChanges'); }
-  ngAfterContentChecked() { console.log('OnChanges'); }
-  ngAfterViewInit() { console.log('OnChanges'); }
-  ngAfterViewChecked() { console.log('OnChanges'); }
-  ngOnDestroy() { console.log('OnChanges'); }
+  ngOnInit() { }
 
   public onClickDeleteButton(): void {
     this.clickDeleteButton.emit(this.course.id);

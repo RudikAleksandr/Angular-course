@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { By } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { CoursesSectionActionsComponent } from './courses-section-actions.component';
 
 describe('CoursesSectionActionsComponent', () => {
@@ -8,6 +9,7 @@ describe('CoursesSectionActionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ FormsModule ],
       declarations: [ CoursesSectionActionsComponent ]
     })
     .compileComponents();
@@ -21,5 +23,13 @@ describe('CoursesSectionActionsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should trigger click on search button', () => {
+    spyOn(console, 'log');
+    component.searchInputText = 'text';
+    const nodeSearchBtn = fixture.debugElement.query(By.css('.courses-section-actions__search-btn'));
+    nodeSearchBtn.triggerEventHandler('click', null);
+    expect(console.log).toHaveBeenCalledWith('text');
   });
 });
