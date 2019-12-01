@@ -50,7 +50,11 @@
   }
 
   &__star-icon {
-    margin-left: 10px;
+    margin-left: 5px;
+  }
+
+  &__top-rated {
+    background-color: rgb(233, 232, 232)
   }
 
   @media (max-width: 991px) {

@@ -1,15 +1,15 @@
-<article [ngClass]="'courses-item container-fluid'" [appCourseBorderColor]="course">
+<article
+  class="courses-item container-fluid"
+  [appCourseBorderColor]="course"
+  [ngClass]="course.isTopRated ? 'courses-item__top-rated' : null"
+>
   <div class="row">
     <h2 class="courses-item__title col-md-12 col-lg-6">
-      <a href="#" class="courses-item__title-link">{{ course.title }}</a>
-      <img
-        *ngIf="topRated"
-        src="assets/img/star.png"
-        alt="star icon"
-        class="courses-item__star-icon">
+      <a href="#" class="courses-item__title-link">{{ course.title | uppercase  }}</a>
+      <span class="courses-item__star-icon" *ngIf="course.isTopRated">☆</span>
     </h2>
     <div class="courses-item__date-time col-md-12 col-lg-3">
-      <time class="courses-item__time">{{ course.duration }} min</time>
+      <time class="courses-item__time">{{ course.duration | duration }}</time>
       <time class="courses-item__date">{{ course.creationDate | date:'dd LLL yyyy' }}</time>
     </div>
   </div>

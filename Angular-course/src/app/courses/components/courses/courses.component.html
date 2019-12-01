@@ -1,7 +1,9 @@
 <section class="courses">
-    <app-courses-section-actions></app-courses-section-actions>
+    <app-courses-section-actions
+        (clickSearchButton)="handlerClickSearchButton($event)"
+    ></app-courses-section-actions>
     <app-courses-list
-        [coursesList]="coursesListPromise | async"
+        [coursesList]="coursesListView"
         (clickDeleteButton)="handlerClickDeleteButton($event)"
     ></app-courses-list>
 </section>

@@ -12,7 +12,8 @@ describe('CoursesItemComponent', () => {
     title: 'Angular',
     creationDate: new Date(2019, 5, 15).toString(),
     duration: 60,
-    description: 'description'
+    description: 'description',
+    isTopRated: false
   };
 
   beforeEach(async(() => {

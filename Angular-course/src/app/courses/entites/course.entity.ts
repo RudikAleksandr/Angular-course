@@ -6,6 +6,7 @@ export class Course implements ICourse {
     creationDate: string;
     duration: number;
     description: string;
+    isTopRated: boolean;
 
     constructor(course: ICourse) {
         this.id = course.id;
@@ -13,5 +14,6 @@ export class Course implements ICourse {
         this.creationDate = course.creationDate;
         this.duration = course.duration;
         this.description = course.description;
+        this.isTopRated = course.isTopRated;
     }
 }

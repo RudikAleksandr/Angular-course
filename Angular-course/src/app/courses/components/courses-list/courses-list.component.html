@@ -1,6 +1,6 @@
 <div class="courses-list">
     <app-courses-item
-        *ngFor="let course of coursesList"
+        *ngFor="let course of coursesList | orderBy:'creationDate'"
         [course]="course"
         (clickDeleteButton)="handlerClickDeleteButton($event)"
     ></app-courses-item>

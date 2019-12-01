@@ -6,6 +6,9 @@ import { CoursesSectionActionsComponent } from './components/courses-section-act
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { CoursesItemComponent } from './components/courses-item/courses-item.component';
 import { CourseBorderColorDirective } from './directives/courseBorderColor/course-border-color.directive';
+import { DurationPipe } from './pipes/duration/duration.pipe';
+import { OrderByPipe } from './pipes/orderBy/order-by.pipe';
+import { SearchPipe } from './pipes/search/search.pipe';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import { CourseBorderColorDirective } from './directives/courseBorderColor/cours
     CoursesSectionActionsComponent,
     CoursesListComponent,
     CoursesItemComponent,
-    CourseBorderColorDirective
+    CourseBorderColorDirective,
+    DurationPipe,
+    OrderByPipe,
+    SearchPipe
   ],
   imports: [
     CommonModule,

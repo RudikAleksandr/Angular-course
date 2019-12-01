@@ -4,6 +4,7 @@ export const coursesList: Array<object> = [
     title: 'Courses 1. Name tag',
     creationDate: new Date().toString(),
     duration: 50,
+    isTopRated: false,
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   },
   {
@@ -11,6 +12,7 @@ export const coursesList: Array<object> = [
     title: 'Courses 2. Name tag',
     creationDate: new Date().toString(),
     duration: 50,
+    isTopRated: true,
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   },
   {
@@ -18,6 +20,7 @@ export const coursesList: Array<object> = [
     title: 'Courses 3. Name tag',
     creationDate: new Date().toString(),
     duration: 50,
+    isTopRated: false,
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   },
   {
@@ -25,13 +28,15 @@ export const coursesList: Array<object> = [
     title: 'Courses 4. Name tag',
     creationDate: new Date().toString(),
     duration: 50,
+    isTopRated: true,
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   },
   {
     id: '5',
     title: 'Courses 5. Name tag',
     creationDate: new Date().toString(),
-    duration: 50,
+    duration: 181,
+    isTopRated: false,
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   }
 ];
