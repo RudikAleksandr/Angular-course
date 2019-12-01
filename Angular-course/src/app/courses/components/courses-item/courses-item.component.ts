@@ -3,13 +3,7 @@ import {
   OnInit,
   Input,
   Output,
-  EventEmitter,
-  OnChanges,
-  AfterContentInit,
-  AfterContentChecked,
-  AfterViewInit,
-  AfterViewChecked,
-  OnDestroy
+  EventEmitter
 } from '@angular/core';
 import { ICourse } from '../../interfaces';
 
