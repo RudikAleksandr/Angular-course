@@ -6,7 +6,7 @@
     ></app-courses-item>
     <button
         class="courses-list__load-btn btn"
-        *ngIf="coursesList.length; else elseBlock"
+        *ngIf="coursesList?.length; else elseBlock"
     >
         Load more
     </button>

@@ -13,29 +13,29 @@
     color: black;
   }
 
-  &___description {
+  &__description {
     margin: 0;
   }
 
-  &___date-time {
+  &__date-time {
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
 
-  &___edit-btn,
-  &___delete-btn {
+  &__edit-btn,
+  &__delete-btn {
     padding: 4px 25px;
     background-color: #30B6DD;
     border-color: #30B6DD;
     color: white;
   }
 
-  &___delete-btn {
+  &__delete-btn {
     margin-left: 15px;
   }
 
-  &___date-time {
+  &__date-time {
     color: #CACCDA;
   }
 
@@ -43,19 +43,23 @@
     margin-left: 20px;
   }
 
-  &___actions {
+  &__actions {
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
 
+  &__star-icon {
+    margin-left: 10px;
+  }
+
   @media (max-width: 991px) {
-    &___date-time {
+    &__date-time {
       justify-content: flex-start;
       margin-bottom: 8px;
     }
 
-    &___actions {
+    &__actions {
       margin-top: 15px;
     }
   }

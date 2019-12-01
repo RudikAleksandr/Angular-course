@@ -15,6 +15,7 @@ import { ICourse } from '../../interfaces';
 export class CoursesItemComponent implements OnInit {
   @Input() public course: ICourse;
   @Output() public clickDeleteButton: EventEmitter<string> = new EventEmitter<string>();
+  public topRated: boolean = true;
 
   constructor() { }
 
