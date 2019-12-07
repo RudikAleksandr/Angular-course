@@ -26,15 +26,18 @@ export class CoursesComponent implements OnInit {
     this.coursesService.getCourses().then((coursesList) => {
       this.coursesList = coursesList;
       this.coursesListView = coursesList;
-    })
+    });
   }
 
   public handlerClickDeleteButton(idCourse: string): void {
-    console.log(idCourse);
+    const isDeleteCourse: boolean = window.confirm('Do you really want to delete this course?');
+    if (isDeleteCourse) {
+      this.coursesService.removeCourse(idCourse);
+      this.loadCourses();
+    }
   }
 
   public handlerClickSearchButton(searchInputText: string): void {
-    console.log(searchInputText);
     this.coursesListView = this.searchPipe.transform(this.coursesList, searchInputText);
   }
 }
