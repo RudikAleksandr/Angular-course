@@ -7,27 +7,25 @@ import { coursesList } from 'jsonMockData/coursesList';
 })
 export class CoursesService {
 
-  public getCourses(): Promise<ICourse[]> {
-    return Promise.resolve(coursesList as ICourse[]);
+  public async getCourses(): Promise<ICourse[]> {
+    return coursesList as ICourse[];
   }
 
-  public createCourse(course: ICourse): void {
-    Promise.resolve(course).then((data) => {
-      coursesList.push(data);
-    });
+  public async createCourse(course: ICourse) {
+    coursesList.push(course);
   }
 
-  public getCourseById(id: string): Promise<ICourse> {
+  public async getCourseById(id: string): Promise<ICourse> {
     const foundCourse: object = coursesList.find((itemCourse: ICourse) => itemCourse.id === id);
-    return Promise.resolve(foundCourse as ICourse);
+    return foundCourse as ICourse;
   }
 
-  public updateCourse(course: ICourse): void {
+  public async updateCourse(course: ICourse) {
     const indexCourse: number = coursesList.findIndex((itemCourse: ICourse) => itemCourse.id === course.id);
     coursesList[indexCourse] = course;
   }
 
-  public removeCourse(id: string): void {
+  public async removeCourse(id: string) {
     const indexCourse = coursesList.findIndex((itemCourse: ICourse) => itemCourse.id === id);
     coursesList.splice(indexCourse, 1);
   }
