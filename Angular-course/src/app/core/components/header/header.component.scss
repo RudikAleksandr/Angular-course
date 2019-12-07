@@ -7,9 +7,13 @@
   }
 
   &__link-course,
-  &__link-login,
-  &__link-log-of {
+  &__btn-log-of {
     color: white;
+  }
+
+  &__btn-log-of {
+    background-color: #414452;
+    border: none;
   }
 
   &__title-block {
@@ -32,9 +36,5 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-  }
-
-  &__link-log-of {
-    margin-left: 30px;
   }
 }

@@ -7,24 +7,26 @@ import { users } from '../../../../../jsonMockData/users';
 })
 export class AuthService {
   private keyUserInLocalStorage = 'user';
-  private token: string;
+  private isAuth = false;
 
   constructor() { }
 
   public async login(login: string, password: string): Promise<IUser> {
     const user = users.find(itemUser => itemUser.login === login && itemUser.password === password);
-    this.saveUserToLocalStorage(user as IUser);
-    this.token = user.token;
-    return user as IUser;
+    if (user) {
+      this.isAuth = true;
+      this.saveUserToLocalStorage(user as IUser);
+      return user as IUser;
+    }
   }
 
   public async logout() {
     this.removeUserInLocalStorage();
-    this.token = null;
+    this.isAuth = false;
   }
 
   public isAuthenticated() {
-    return !!this.token;
+    return this.isAuth;
   }
 
   public async getUserInfo(): Promise<string> {

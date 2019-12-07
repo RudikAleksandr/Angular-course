@@ -6,8 +6,12 @@
           </h1>
       </div>
       <div class="header__links col">
-        <a href="#" class="header__link-login header__link-item">User login</a>
-        <a href="#" class="header__link-log-of header__link-item" (click)="onClickLogOffButton()">Log off</a>
+        <button
+          class="header__btn-log-of"
+          (click)="onClickLogOffButton()"
+          *ngIf="authService.isAuthenticated()"
+          >Log off
+        </button>
       </div>
   </div>
 </header>
