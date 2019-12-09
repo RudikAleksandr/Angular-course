@@ -1,6 +1,6 @@
 <app-header></app-header>
 <main>
-  <app-breadcrumbs *ngIf="authService.isAuthenticated()"></app-breadcrumbs>
+  <app-breadcrumbs *ngIf="isAuth()"></app-breadcrumbs>
   <div class="content-min-height content-padding">
     <router-outlet></router-outlet>
   </div>

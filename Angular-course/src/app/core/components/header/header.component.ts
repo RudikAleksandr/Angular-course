@@ -17,6 +17,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  public isAuth(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
   onClickLogOffButton(): void {
     this.authService.logout().then(() => {
       this.router.navigate(['/login']);

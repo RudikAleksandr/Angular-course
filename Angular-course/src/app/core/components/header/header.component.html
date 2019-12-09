@@ -9,7 +9,7 @@
         <button
           class="header__btn-log-of"
           (click)="onClickLogOffButton()"
-          *ngIf="authService.isAuthenticated()"
+          *ngIf="isAuth()"
           >Log off
         </button>
       </div>
