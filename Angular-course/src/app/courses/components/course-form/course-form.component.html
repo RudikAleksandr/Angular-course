@@ -1,0 +1,27 @@
+<div class="course-form">
+  <form class="course-form__form">
+    <div class="form-group">
+      <label for="courseTitle">Title:</label>
+      <input type="text" class="form-control" id="courseTitle" [(ngModel)]="title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="courseDescription">Description:</label>
+      <textarea class="form-control" id="courseDescription" rows="3" [(ngModel)]="description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="courseDate">Date:</label>
+        <input type="text" class="form-control" id="courseDate" [(ngModel)]="date" name="date">
+    </div>
+    <div class="form-group">
+        <label for="courseDuration">Duration:</label>
+        <input type="text" class="form-control course-form__duration" id="courseDuration" [(ngModel)]="duration" name="duration">
+        <span>{{duration || 0 | duration}}</span>
+    </div>
+    <div class="form-group course-form__authors-group">
+        <label for="courseAuthors">Authors:</label>
+        <input type="text" class="form-control" id="courseAuthors" [(ngModel)]="authors" name="authors">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onClickSubmitButton()">Submit</button>
+    <button class="course-form__btn-cancel btn btn-secondary" (click)="onClickCancelButton()">Cancel</button>
+  </form>
+</div>

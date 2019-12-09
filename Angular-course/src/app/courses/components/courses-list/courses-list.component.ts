@@ -9,10 +9,15 @@ import { ICourse } from '../../interfaces';
 export class CoursesListComponent implements OnInit {
   @Input() public coursesList: ICourse[];
   @Output() public clickDeleteButton: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public clickEditButton: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public handlerClickEditButton(idCourse: string): void {
+    this.clickEditButton.emit(idCourse);
   }
 
   public handlerClickDeleteButton(idCourse: string): void {

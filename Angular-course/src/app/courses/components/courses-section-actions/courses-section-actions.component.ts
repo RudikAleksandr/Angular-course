@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses-section-actions',
@@ -9,12 +10,18 @@ export class CoursesSectionActionsComponent implements OnInit {
   @Output() public clickSearchButton: EventEmitter<string> = new EventEmitter<string>();
   public searchInputText: string;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   public onClickSearchButton(): void {
     this.clickSearchButton.emit(this.searchInputText);
+  }
+
+  public onClickAddButton(): void {
+    this.router.navigateByUrl('courses/new');
   }
 }

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   public onClickLoginButton(): void {
     this.authService.login(this.login, this.password).then((user: IUser) => {
       if (user) {
-        this.router.navigate(['/courses']);
+        this.router.navigateByUrl('courses');
         console.log('logged in successfully');
       }
     });

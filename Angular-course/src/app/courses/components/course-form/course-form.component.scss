@@ -1,0 +1,18 @@
+.course-form {
+  &__btn-cancel {
+    margin-left: 25px;
+  }
+
+  &__authors-group {
+    margin-bottom: 20px;
+  }
+
+  &__duration {
+    margin-bottom: 10px;
+  }
+
+  input, textarea {
+    max-width: 30%;
+  }
+
+}

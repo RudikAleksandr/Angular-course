@@ -4,6 +4,7 @@
     ></app-courses-section-actions>
     <app-courses-list
         [coursesList]="coursesListView"
+        (clickEditButton)="handlerClickEditButton($event)"
         (clickDeleteButton)="handlerClickDeleteButton($event)"
     ></app-courses-list>
 </section>

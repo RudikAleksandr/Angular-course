@@ -1,18 +1,17 @@
 <div class="courses-list">
-    <app-courses-item
-        *ngFor="let course of coursesList | orderBy:'creationDate'"
-        [course]="course"
-        (clickDeleteButton)="handlerClickDeleteButton($event)"
-    ></app-courses-item>
-    <button
-        class="courses-list__load-btn btn"
-        *ngIf="coursesList?.length; else elseBlock"
-    >
-        Load more
-    </button>
-    <ng-template #elseBlock>
-        <button class="courses-list__load-btn btn" disabled> No data. Feel free to add new course</button>
-    </ng-template>
-
-
+  <app-courses-item
+    *ngFor="let course of coursesList | orderBy:'creationDate'"
+    [course]="course"
+    (clickEditButton)="handlerClickEditButton($event)"
+    (clickDeleteButton)="handlerClickDeleteButton($event)"
+  ></app-courses-item>
+  <button
+    class="courses-list__load-btn btn"
+    *ngIf="coursesList?.length; else elseBlock"
+  >
+    Load more
+  </button>
+  <ng-template #elseBlock>
+    <button class="courses-list__load-btn btn" disabled> No data. Feel free to add new course</button>
+  </ng-template>
 </div>

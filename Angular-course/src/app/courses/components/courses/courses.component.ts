@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../../services';
 import { ICourse } from '../../interfaces';
 import { SearchPipe } from '../../pipes/search/search.pipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -15,7 +16,8 @@ export class CoursesComponent implements OnInit {
 
   constructor(
     private coursesService: CoursesService,
-    private searchPipe: SearchPipe
+    private searchPipe: SearchPipe,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,10 @@ export class CoursesComponent implements OnInit {
       this.coursesList = coursesList;
       this.coursesListView = coursesList;
     });
+  }
+
+  public handlerClickEditButton(idCourse: string): void {
+    this.router.navigate(['/courses', idCourse]);
   }
 
   public handlerClickDeleteButton(idCourse: string): void {

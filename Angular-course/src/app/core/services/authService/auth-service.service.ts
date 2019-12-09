@@ -25,7 +25,7 @@ export class AuthService {
     this.isAuth = false;
   }
 
-  public isAuthenticated() {
+  public isAuthenticated(): boolean {
     return this.isAuth;
   }
 

@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   onClickLogOffButton(): void {
     this.authService.logout().then(() => {
-      this.router.navigate(['/login']);
+      this.router.navigateByUrl('login');
       console.log('action: LOGOUT');
     });
   }

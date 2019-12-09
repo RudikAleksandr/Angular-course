@@ -9,6 +9,9 @@ import { CourseBorderColorDirective } from './directives/courseBorderColor/cours
 import { DurationPipe } from './pipes/duration/duration.pipe';
 import { OrderByPipe } from './pipes/orderBy/order-by.pipe';
 import { SearchPipe } from './pipes/search/search.pipe';
+import { AddCoursePageComponent } from './components/add-course-page/add-course-page.component';
+import { EditCoursePageComponent } from './components/edit-course-page/edit-course-page.component';
+import { CourseFormComponent } from './components/course-form/course-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { SearchPipe } from './pipes/search/search.pipe';
     CourseBorderColorDirective,
     DurationPipe,
     OrderByPipe,
-    SearchPipe
+    SearchPipe,
+    AddCoursePageComponent,
+    EditCoursePageComponent,
+    CourseFormComponent
   ],
   imports: [
     CommonModule,
