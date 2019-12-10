@@ -1,12 +1,13 @@
 import { ICourse } from '../interfaces';
 
 export class Course implements ICourse {
-    id: string;
+    id?: string;
+    isTopRated?: boolean;
     title: string;
     creationDate: string;
     duration: number;
     description: string;
-    isTopRated: boolean;
+    authors: string;
 
     constructor(course: ICourse) {
         this.id = course.id;
@@ -14,6 +15,7 @@ export class Course implements ICourse {
         this.creationDate = course.creationDate;
         this.duration = course.duration;
         this.description = course.description;
+        this.authors = course.authors;
         this.isTopRated = course.isTopRated;
     }
 }

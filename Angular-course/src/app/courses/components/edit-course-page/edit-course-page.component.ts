@@ -26,8 +26,9 @@ export class EditCoursePageComponent implements OnInit {
     console.log(this.course);
   }
 
-  public handlerClickSubmitBtn(event): void {
-    console.log('Submit edited course');
+  public handlerClickSubmitBtn(courseData: object): void {
+    this.coursesService.updateCourse({...this.course, ...courseData});
+    this.router.navigateByUrl('courses');
   }
 
   public handlerClickCancelBtn(): void {

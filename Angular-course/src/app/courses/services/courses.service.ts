@@ -12,6 +12,8 @@ export class CoursesService {
   }
 
   public async createCourse(course: ICourse): Promise<void> {
+    course.id = String(Math.random());
+    course.isTopRated = false;
     coursesList.push(course);
   }
 

@@ -5,6 +5,7 @@ export const coursesList: Array<object> = [
     creationDate: new Date().toString(),
     duration: 50,
     isTopRated: false,
+    authors: 'gfhfhg',
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   },
   {
@@ -13,6 +14,7 @@ export const coursesList: Array<object> = [
     creationDate: new Date().toString(),
     duration: 50,
     isTopRated: true,
+    authors: 'regreg fd gf',
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   },
   {
@@ -21,6 +23,7 @@ export const coursesList: Array<object> = [
     creationDate: new Date().toString(),
     duration: 50,
     isTopRated: false,
+    authors: 'regreg fd gf',
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   },
   {
@@ -29,6 +32,7 @@ export const coursesList: Array<object> = [
     creationDate: new Date().toString(),
     duration: 50,
     isTopRated: true,
+    authors: 'regreg fd gf',
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   },
   {
@@ -37,6 +41,7 @@ export const coursesList: Array<object> = [
     creationDate: new Date().toString(),
     duration: 181,
     isTopRated: false,
+    authors: 'regreg fd gf',
     description: 'fdgdfg dfg f gsf gfsg dsjf dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh dsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldhdsljh fjkhsd fdjkh lfkh jkah fkjldh flksh fsh klsdhfkh skh lskdhf skd fksd hfjkhs jkfh skdhfkjdhs fkh sdkfh skdh fskjh flkshf lkjsdh fjsh fjdsh  sdf gfd gfsd g kjdh fjh ljhd sakjlhajhlfdlkh aileh liewuh liuewh hew lkjah kjweh fjah fjah l'
   }
 ];
