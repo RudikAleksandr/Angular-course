@@ -17,11 +17,11 @@ export class CoursesSectionActionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onClickSearchButton(): void {
+  public handlerClickSearchBtn(): void {
     this.clickSearchButton.emit(this.searchInputText);
   }
 
-  public onClickAddButton(): void {
+  public handlerClickAddBtn(): void {
     this.router.navigateByUrl('courses/new');
   }
 }

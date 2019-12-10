@@ -15,11 +15,11 @@ export class EditCoursePageComponent implements OnInit {
   ngOnInit() {
   }
 
-  public handlerClickSubmitButton(event): void {
+  public handlerClickSubmitBtn(event): void {
     console.log('Submit edited course');
   }
 
-  public handlerClickCancelButton(): void {
+  public handlerClickCancelBtn(): void {
     this.router.navigateByUrl('courses');
   }
 

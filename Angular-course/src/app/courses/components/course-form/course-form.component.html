@@ -21,7 +21,7 @@
         <label for="courseAuthors">Authors:</label>
         <input type="text" class="form-control" id="courseAuthors" [(ngModel)]="authors" name="authors">
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onClickSubmitButton()">Submit</button>
-    <button class="course-form__btn-cancel btn btn-secondary" (click)="onClickCancelButton()">Cancel</button>
+    <button type="submit" class="btn btn-primary" (click)="handlerClickSubmitBtn()">Submit</button>
+    <button class="course-form__btn-cancel btn btn-secondary" (click)="handlerClickCancelBtn()">Cancel</button>
   </form>
 </div>

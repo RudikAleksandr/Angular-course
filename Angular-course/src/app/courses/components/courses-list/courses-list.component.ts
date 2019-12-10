@@ -16,11 +16,11 @@ export class CoursesListComponent implements OnInit {
   ngOnInit() {
   }
 
-  public handlerClickEditButton(idCourse: string): void {
+  public handlerClickEditBtn(idCourse: string): void {
     this.clickEditButton.emit(idCourse);
   }
 
-  public handlerClickDeleteButton(idCourse: string): void {
+  public handlerClickDeleteBtn(idCourse: string): void {
     this.clickDeleteButton.emit(idCourse);
   }
 }

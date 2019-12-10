@@ -23,11 +23,11 @@ export class CoursesItemComponent implements OnInit {
 
   ngOnInit() { }
 
-  public onClickEditButton(): void {
+  public handlerClickEditBtn(): void {
     this.clickEditButton.emit(this.course.id);
   }
 
-  public onClickDeleteButton(): void {
+  public handlerClickDeleteBtn(): void {
     this.clickDeleteButton.emit(this.course.id);
   }
 }

@@ -2,8 +2,8 @@
   <app-courses-item
     *ngFor="let course of coursesList | orderBy:'creationDate'"
     [course]="course"
-    (clickEditButton)="handlerClickEditButton($event)"
-    (clickDeleteButton)="handlerClickDeleteButton($event)"
+    (clickEditButton)="handlerClickEditBtn(course?.id)"
+    (clickDeleteButton)="handlerClickDeleteBtn(course?.id)"
   ></app-courses-item>
   <button
     class="courses-list__load-btn btn"

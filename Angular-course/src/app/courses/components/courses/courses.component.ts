@@ -31,11 +31,11 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  public handlerClickEditButton(idCourse: string): void {
+  public handlerClickEditBtn(idCourse: string): void {
     this.router.navigate(['/courses', idCourse]);
   }
 
-  public handlerClickDeleteButton(idCourse: string): void {
+  public handlerClickDeleteBtn(idCourse: string): void {
     const isDeleteCourse: boolean = window.confirm('Do you really want to delete this course?');
     if (isDeleteCourse) {
       this.coursesService.removeCourse(idCourse);
@@ -43,7 +43,7 @@ export class CoursesComponent implements OnInit {
     }
   }
 
-  public handlerClickSearchButton(searchInputText: string): void {
+  public handlerClickSearchBtn(searchInputText: string): void {
     this.coursesListView = this.searchPipe.transform(this.coursesList, searchInputText);
   }
 }

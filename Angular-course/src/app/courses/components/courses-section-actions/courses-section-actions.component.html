@@ -4,12 +4,12 @@
       <input type="text" class="courses-section-actions__search-input"
         placeholder="Text to search" [(ngModel)]="searchInputText">
       <button class="courses-section-actions__search-btn btn"
-        (click)="onClickSearchButton()">
+        (click)="handlerClickSearchBtn()">
         Search
       </button>
     </div>
     <div class="courses-section-actions__add-course col col-sm-4 col-md col-lg">
-        <button class="courses-section-actions__add-course-btn btn" (click)="onClickAddButton()">+ Add course</button>
+        <button class="courses-section-actions__add-course-btn btn" (click)="handlerClickAddBtn()">+ Add course</button>
     </div>
   </div>
 </div>

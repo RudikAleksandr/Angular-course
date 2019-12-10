@@ -19,11 +19,11 @@ export class CourseFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onClickSubmitButton(): void {
+  public handlerClickSubmitBtn(): void {
     this.clickSubmitButton.emit('fg');
   }
 
-  public onClickCancelButton(): void {
+  public handlerClickCancelBtn(): void {
     this.clickCancelButton.emit();
   }
 

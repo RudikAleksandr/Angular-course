@@ -12,15 +12,15 @@ export class AuthService {
   constructor() { }
 
   public async login(login: string, password: string): Promise<IUser> {
-    const user = users.find(itemUser => itemUser.login === login && itemUser.password === password);
+    const user: IUser = users.find((itemUser) => itemUser.login === login && itemUser.password === password);
     if (user) {
       this.isAuth = true;
-      this.saveUserToLocalStorage(user as IUser);
-      return user as IUser;
+      this.saveUserToLocalStorage(user);
+      return user;
     }
   }
 
-  public async logout() {
+  public async logout(): Promise<void> {
     this.removeUserInLocalStorage();
     this.isAuth = false;
   }

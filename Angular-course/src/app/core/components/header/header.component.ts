@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     return this.authService.isAuthenticated();
   }
 
-  onClickLogOffButton(): void {
+  handlerClickLogOffBtn(): void {
     this.authService.logout().then(() => {
       this.router.navigateByUrl('login');
       console.log('action: LOGOUT');

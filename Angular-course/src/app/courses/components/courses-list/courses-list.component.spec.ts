@@ -27,7 +27,7 @@ describe('CoursesListComponent', () => {
 
   it('should emit delete course with id', () => {
     spyOn(component.clickDeleteButton, 'emit');
-    component.handlerClickDeleteButton('1');
+    component.handlerClickDeleteBtn('1');
     expect(component.clickDeleteButton.emit).toHaveBeenCalledWith('1');
   });
 });

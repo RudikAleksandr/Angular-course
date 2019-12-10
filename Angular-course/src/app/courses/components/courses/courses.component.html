@@ -1,10 +1,10 @@
 <section class="courses">
     <app-courses-section-actions
-        (clickSearchButton)="handlerClickSearchButton($event)"
+        (clickSearchButton)="handlerClickSearchBtn($event)"
     ></app-courses-section-actions>
     <app-courses-list
         [coursesList]="coursesListView"
-        (clickEditButton)="handlerClickEditButton($event)"
-        (clickDeleteButton)="handlerClickDeleteButton($event)"
+        (clickEditButton)="handlerClickEditBtn($event)"
+        (clickDeleteButton)="handlerClickDeleteBtn($event)"
     ></app-courses-list>
 </section>

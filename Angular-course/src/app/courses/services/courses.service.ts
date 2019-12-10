@@ -11,7 +11,7 @@ export class CoursesService {
     return coursesList as ICourse[];
   }
 
-  public async createCourse(course: ICourse) {
+  public async createCourse(course: ICourse): Promise<void> {
     coursesList.push(course);
   }
 
@@ -20,12 +20,12 @@ export class CoursesService {
     return foundCourse as ICourse;
   }
 
-  public async updateCourse(course: ICourse) {
+  public async updateCourse(course: ICourse): Promise<void> {
     const indexCourse: number = coursesList.findIndex((itemCourse: ICourse) => itemCourse.id === course.id);
     coursesList[indexCourse] = course;
   }
 
-  public async removeCourse(id: string) {
+  public async removeCourse(id: string): Promise<void> {
     const indexCourse = coursesList.findIndex((itemCourse: ICourse) => itemCourse.id === id);
     coursesList.splice(indexCourse, 1);
   }

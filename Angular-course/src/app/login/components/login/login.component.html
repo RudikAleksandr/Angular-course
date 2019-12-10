@@ -6,7 +6,7 @@
          placeholder="login" [(ngModel)]="login">
       <input type="text" class="login__text"
         placeholder="password" [(ngModel)]="password">
-      <button class="login__bth-submit" [disabled]="!login || !password" (click)="onClickLoginButton()">Log In</button>
+      <button class="login__bth-submit" [disabled]="!login || !password" (click)="handlerClickLoginBtn()">Log In</button>
     </div>
     <div id="formFooter" class="login__footer">
       <a class="login__forget-link" href="/login">Forgot Password?</a>

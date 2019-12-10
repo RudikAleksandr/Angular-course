@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onClickLoginButton(): void {
+  public handlerClickLoginBtn(): void {
     this.authService.login(this.login, this.password).then((user: IUser) => {
       if (user) {
         this.router.navigateByUrl('courses');
