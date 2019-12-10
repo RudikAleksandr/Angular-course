@@ -21,10 +21,8 @@ export class HeaderComponent implements OnInit {
     return this.authService.isAuthenticated();
   }
 
-  handlerClickLogOffBtn(): void {
-    this.authService.logout().then(() => {
-      this.router.navigateByUrl('login');
-      console.log('action: LOGOUT');
-    });
+  public async handlerClickLogOffBtn(): Promise<void> {
+    await this.authService.logout();
+    this.router.navigateByUrl('login');
   }
 }

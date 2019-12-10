@@ -24,11 +24,10 @@ export class CoursesComponent implements OnInit {
     this.loadCourses();
   }
 
-  private loadCourses(): void {
-    this.coursesService.getCourses().then((coursesList) => {
-      this.coursesList = coursesList;
-      this.coursesListView = coursesList;
-    });
+  private async loadCourses(): Promise<void> {
+    const coursesList = await this.coursesService.getCourses();
+    this.coursesList = coursesList;
+    this.coursesListView = coursesList;
   }
 
   public handlerClickEditBtn(idCourse: string): void {

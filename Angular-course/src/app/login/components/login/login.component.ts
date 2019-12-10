@@ -20,12 +20,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  public handlerClickLoginBtn(): void {
-    this.authService.login(this.login, this.password).then((user: IUser) => {
-      if (user) {
-        this.router.navigateByUrl('courses');
-        console.log('logged in successfully');
-      }
-    });
+  public async handlerClickLoginBtn(): Promise<void> {
+    const user: IUser = await this.authService.login(this.login, this.password);
+    if (user) {
+      this.router.navigateByUrl('courses');
+    }
   }
 }
