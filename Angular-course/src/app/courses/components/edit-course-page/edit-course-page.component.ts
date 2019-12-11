@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces';
+import { BreadcrumbsService } from 'src/app/core/services/breadcrumbs/breadcrumbs.service';
 
 @Component({
   selector: 'app-edit-course-page',
@@ -14,7 +15,8 @@ export class EditCoursePageComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private coursesService: CoursesService
+    private coursesService: CoursesService,
+    private breadcrumbsService: BreadcrumbsService
   ) { }
 
   ngOnInit() {
@@ -23,6 +25,7 @@ export class EditCoursePageComponent implements OnInit {
 
   private async handlerRouteParams({ id }): Promise<void> {
     this.course = await this.coursesService.getCourseById(id);
+    this.breadcrumbsService.emitBreadcrumbsChangeEvent(this.course.title);
     console.log(this.course);
   }
 
