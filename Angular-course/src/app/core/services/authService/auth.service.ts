@@ -7,14 +7,12 @@ import { users } from '../../../../../jsonMockData/users';
 })
 export class AuthService {
   private keyUserInLocalStorage = 'user';
-  private isAuth = false;
 
   constructor() { }
 
   public async login(login: string, password: string): Promise<IUser> {
     const user: IUser = users.find((itemUser) => itemUser.login === login && itemUser.password === password);
     if (user) {
-      this.isAuth = true;
       this.saveUserToLocalStorage(user);
       return user;
     }
@@ -22,11 +20,10 @@ export class AuthService {
 
   public async logout(): Promise<void> {
     this.removeUserInLocalStorage();
-    this.isAuth = false;
   }
 
   public isAuthenticated(): boolean {
-    return true;// this.isAuth;
+    return !!this.getUserFromLocalStorage();
   }
 
   public async getUserInfo(): Promise<string> {
