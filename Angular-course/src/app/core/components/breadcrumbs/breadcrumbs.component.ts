@@ -25,8 +25,6 @@ export class BreadcrumbsComponent implements OnInit {
         case RoutesEnum.courses: this.breadcrumbs = ''; break;
         case RoutesEnum.addCourse: this.breadcrumbs = RoutesEnum.addCourse.split('/')[2]; break;
       }
-
-      console.log(event);
     }
   }
 
