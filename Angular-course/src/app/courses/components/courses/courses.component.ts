@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoursesService } from '../../services';
+import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces';
 import { SearchPipe } from '../../pipes/search/search.pipe';
 import { Router } from '@angular/router';

@@ -12,6 +12,7 @@ import { SearchPipe } from './pipes/search/search.pipe';
 import { AddCoursePageComponent } from './components/add-course-page/add-course-page.component';
 import { EditCoursePageComponent } from './components/edit-course-page/edit-course-page.component';
 import { CourseFormComponent } from './components/course-form/course-form.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CourseFormComponent } from './components/course-form/course-form.compon
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     CoursesComponent

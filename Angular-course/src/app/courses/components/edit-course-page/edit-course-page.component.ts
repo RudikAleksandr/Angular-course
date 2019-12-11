@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CoursesService } from '../../services';
+import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces';
 
 @Component({
@@ -26,7 +26,7 @@ export class EditCoursePageComponent implements OnInit {
     console.log(this.course);
   }
 
-  public handlerClickSubmitBtn(courseData: object): void {
+  public handlerClickSubmitBtn(courseData: ICourse): void {
     this.coursesService.updateCourse({...this.course, ...courseData});
     this.router.navigateByUrl('courses');
   }

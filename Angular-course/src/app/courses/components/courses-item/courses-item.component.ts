@@ -7,6 +7,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { ICourse } from '../../interfaces';
+import { BreadcrumbsService } from 'src/app/core/services/breadcrumbs/breadcrumbs.service';
 
 @Component({
   selector: 'app-courses-item',
@@ -19,11 +20,14 @@ export class CoursesItemComponent implements OnInit {
   @Output() public clickDeleteButton: EventEmitter<string> = new EventEmitter<string>();
   @Output() public clickEditButton: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+    private breadcrumbsService: BreadcrumbsService
+  ) { }
 
   ngOnInit() { }
 
   public handlerClickEditBtn(): void {
+    this.breadcrumbsService.emitBreadcrumbsChangeEvent(this.course.title);
     this.clickEditButton.emit(this.course.id);
   }
 
