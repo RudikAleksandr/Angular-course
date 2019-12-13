@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { Routes } from '../../enums/routes.enum';
 
 @Component({
   selector: 'app-header',
@@ -21,8 +22,8 @@ export class HeaderComponent implements OnInit {
     return this.authService.isAuthenticated();
   }
 
-  public async handlerClickLogOffBtn(): Promise<void> {
-    await this.authService.logout();
-    this.router.navigateByUrl('login');
+  public handlerClickLogOffBtn() {
+    this.authService.logout();
+    this.router.navigateByUrl(Routes.LOGIN);
   }
 }

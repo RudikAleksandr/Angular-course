@@ -1,52 +1,60 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../../interfaces/user.model';
-import { users } from '../../../../../jsonMockData/users';
+import { HttpClient } from '@angular/common/http';
+import { Routes } from '../../enums/routes.enum';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { IToken } from '../../interfaces/token.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private keyUserInLocalStorage = 'user';
+  private keyTokenInLocalStorage = 'token';
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-  public async login(login: string, password: string): Promise<IUser> {
-    const user: IUser = users.find((itemUser) => itemUser.login === login && itemUser.password === password);
-    if (user) {
-      this.saveUserToLocalStorage(user);
-      return user;
-    }
+  public login(login: string, password: string): Observable<IToken> {
+    const url = `${Routes.SERVER_URL}${Routes.AUTH_LOGIN}`;
+    return this.http.post<IToken>(url, { login, password }).pipe(
+      map((data: IToken) => {
+        this.saveTokenToLocalStorage(data.token);
+        return data;
+      })
+    );
   }
 
-  public async logout(): Promise<void> {
-    this.removeUserInLocalStorage();
+  public logout(): void {
+    this.removeTokenInLocalStorage();
   }
 
-  public async getUserInfo(): Promise<string> {
-    const user: IUser = this.getUserFromLocalStorage();
-    return user.login;
+  public getUserInfo(): Observable<IUser> {
+    const url = `${Routes.SERVER_URL}${Routes.AUTH_USERINFO}`;
+    const token = this.getTokenFromLocalStorage();
+    return this.http.post<IUser>(url, { token });
   }
 
   public isAuthenticated(): boolean {
-    return !!this.getUserFromLocalStorage();
+    return !!this.getTokenFromLocalStorage();
   }
 
   public getToken(): string {
-    const userInfo: IUser = this.getUserFromLocalStorage();
-    return userInfo ? userInfo.token : null;
+    return this.getTokenFromLocalStorage();
   }
 
-  private saveUserToLocalStorage(user: IUser): void {
-    localStorage.setItem(this.keyUserInLocalStorage, JSON.stringify(user));
+  private saveTokenToLocalStorage(token: string): void {
+    localStorage.setItem(this.keyTokenInLocalStorage, token);
   }
 
-  private getUserFromLocalStorage(): IUser {
-    const user = JSON.parse(localStorage.getItem(this.keyUserInLocalStorage));
-    return user as IUser;
+  private getTokenFromLocalStorage(): string {
+    return localStorage.getItem(this.keyTokenInLocalStorage);
   }
 
-  private removeUserInLocalStorage(): void {
-    localStorage.removeItem(this.keyUserInLocalStorage);
+  private removeTokenInLocalStorage(): void {
+    localStorage.removeItem(this.keyTokenInLocalStorage);
   }
 
 }

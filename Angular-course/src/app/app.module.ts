@@ -6,7 +6,7 @@ import { CoreModule } from './core/core.module';
 import { CoursesModule } from './courses/courses.module';
 import { LoginModule } from './login/login.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     CoreModule,
     CoursesModule,
     LoginModule,
-    AppRouterModule
+    AppRouterModule,
+    HttpClientModule
   ],
   providers: [
     {

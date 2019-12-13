@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { IUser } from 'src/app/core/interfaces/user.model';
 import { Router } from '@angular/router';
+import { Routes } from 'src/app/core/enums/routes.enum';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +21,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  public async handlerClickLoginBtn(): Promise<void> {
-    const user: IUser = await this.authService.login(this.login, this.password);
-    if (user) {
-      this.router.navigateByUrl('courses');
-    }
+  public handlerClickLoginBtn(): void {
+    this.authService.login(this.login, this.password).subscribe(() => {
+      this.router.navigateByUrl(Routes.COURSES);
+    });
   }
 }

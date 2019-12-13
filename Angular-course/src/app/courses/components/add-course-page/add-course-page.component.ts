@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces/course.model';
+import { Routes } from 'src/app/core/enums/routes.enum';
 
 @Component({
   selector: 'app-add-course-page',
@@ -20,11 +21,11 @@ export class AddCoursePageComponent implements OnInit {
 
   public handlerClickSubmitBtn(courseData: ICourse): void {
     this.coursesService.createCourse(courseData);
-    this.router.navigateByUrl('courses');
+    this.router.navigateByUrl(Routes.COURSES);
   }
 
   public handlerClickCancelBtn(): void {
-    this.router.navigateByUrl('courses');
+    this.router.navigateByUrl(Routes.COURSES);
   }
 
 }

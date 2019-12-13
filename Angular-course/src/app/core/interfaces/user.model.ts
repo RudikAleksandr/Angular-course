@@ -1,8 +1,9 @@
+import { IName } from './../interfaces/name.model';
+
 export interface IUser {
   id: string;
-  firstName: string;
-  lastName: string;
+  token: string;
+  name: IName;
   login: string;
   password: string;
-  token: string;
 }

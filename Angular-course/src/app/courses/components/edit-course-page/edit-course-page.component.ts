@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces/course.model';
 import { BreadcrumbsService } from 'src/app/core/services/breadcrumbs/breadcrumbs.service';
+import { Routes } from 'src/app/core/enums/routes.enum';
 
 @Component({
   selector: 'app-edit-course-page',
@@ -31,11 +32,11 @@ export class EditCoursePageComponent implements OnInit {
 
   public handlerClickSubmitBtn(courseData: ICourse): void {
     this.coursesService.updateCourse({...this.course, ...courseData});
-    this.router.navigateByUrl('courses');
+    this.router.navigateByUrl(Routes.COURSES);
   }
 
   public handlerClickCancelBtn(): void {
-    this.router.navigateByUrl('courses');
+    this.router.navigateByUrl(Routes.COURSES);
   }
 
 }

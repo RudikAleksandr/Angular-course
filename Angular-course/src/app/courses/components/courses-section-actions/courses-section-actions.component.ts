@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { Routes } from 'src/app/core/enums/routes.enum';
 
 @Component({
   selector: 'app-courses-section-actions',
@@ -22,6 +23,6 @@ export class CoursesSectionActionsComponent implements OnInit {
   }
 
   public handlerClickAddBtn(): void {
-    this.router.navigateByUrl('courses/new');
+    this.router.navigateByUrl(Routes.COURSES_NEW);
   }
 }
