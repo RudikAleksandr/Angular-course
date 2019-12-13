@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { BreadcrumbsService } from '../../services/breadcrumbs/breadcrumbs.service';
-import { RoutesEnum } from '../../enums/routes';
+import { Routes } from '../../enums/routes.enum';
 @Component({
   selector: 'app-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
@@ -22,8 +22,8 @@ export class BreadcrumbsComponent implements OnInit {
   private handlerRouterEvents(event: RouterEvent): void {
     if (event instanceof NavigationEnd) {
       switch (event.urlAfterRedirects) {
-        case RoutesEnum.courses: this.breadcrumbs = ''; break;
-        case RoutesEnum.addCourse: this.breadcrumbs = RoutesEnum.addCourse.split('/')[2]; break;
+        case Routes.COURSES: this.breadcrumbs = ''; break;
+        case Routes.COURSES_NEW: this.breadcrumbs = Routes.COURSES_NEW.split('/')[2]; break;
       }
     }
   }
