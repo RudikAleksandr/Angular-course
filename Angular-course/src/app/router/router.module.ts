@@ -5,8 +5,7 @@ import { LoginComponent } from '../login/components/login/login.component';
 import { EditCoursePageComponent } from '../courses/components/edit-course-page/edit-course-page.component';
 import { AddCoursePageComponent } from '../courses/components/add-course-page/add-course-page.component';
 import { NonContentComponent } from './components/non-content/non-content.component';
-import { AuthGuard } from '../core/services/authGuard/auth.guard';
-
+import { AuthGuard } from '../core/guards/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'courses', pathMatch: 'full' },
