@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUser } from '../../interfaces';
+import { IUser } from '../../interfaces/user.model';
 import { users } from '../../../../../jsonMockData/users';
 
 @Injectable({

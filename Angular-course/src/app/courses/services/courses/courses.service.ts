@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICourse } from '../../interfaces';
+import { ICourse } from '../../interfaces/course.model';
 import { coursesList } from 'jsonMockData/coursesList';
 
 @Injectable({

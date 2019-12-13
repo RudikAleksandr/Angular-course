@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Renderer2, Input } from '@angular/core';
-import { ICourse } from '../../interfaces';
+import { ICourse } from '../../interfaces/course.model';
 
 @Directive({
   selector: '[appCourseBorderColor]'
