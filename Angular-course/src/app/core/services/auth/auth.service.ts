@@ -22,13 +22,18 @@ export class AuthService {
     this.removeUserInLocalStorage();
   }
 
+  public async getUserInfo(): Promise<string> {
+    const user: IUser = this.getUserFromLocalStorage();
+    return user.login;
+  }
+
   public isAuthenticated(): boolean {
     return !!this.getUserFromLocalStorage();
   }
 
-  public async getUserInfo(): Promise<string> {
-    const user: IUser = this.getUserFromLocalStorage();
-    return user.login;
+  public getToken(): string {
+    const userInfo: IUser = this.getUserFromLocalStorage();
+    return userInfo ? userInfo.token : null;
   }
 
   private saveUserToLocalStorage(user: IUser): void {
