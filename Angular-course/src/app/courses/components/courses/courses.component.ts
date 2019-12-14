@@ -3,6 +3,7 @@ import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces/course.model';
 import { SearchPipe } from '../../pipes/search/search.pipe';
 import { Router } from '@angular/router';
+import { Routes } from 'src/app/core/enums/routes.enum';
 
 @Component({
   selector: 'app-courses',
@@ -11,12 +12,11 @@ import { Router } from '@angular/router';
   providers: [SearchPipe]
 })
 export class CoursesComponent implements OnInit {
-  public coursesListView: ICourse[];
-  private coursesList: ICourse[];
+  public coursesList: ICourse[];
+  private pageNumber = 1;
 
   constructor(
     private coursesService: CoursesService,
-    private searchPipe: SearchPipe,
     private router: Router
   ) { }
 
@@ -24,25 +24,32 @@ export class CoursesComponent implements OnInit {
     this.loadCourses();
   }
 
-  private async loadCourses(): Promise<void> {
-    const coursesList = await this.coursesService.getCourses();
-    this.coursesList = coursesList;
-    this.coursesListView = coursesList;
+  private loadCourses(textFragment?: string): void {
+    this.coursesService.getCourses(this.pageNumber, textFragment).subscribe((courses: ICourse[]) => {
+      this.coursesList = courses;
+    });
   }
 
-  public handlerClickEditBtn(idCourse: string): void {
-    this.router.navigate(['/courses', idCourse]);
+  public handlerClickEditBtn(idCourse: number): void {
+    this.router.navigate([Routes.COURSES, idCourse]);
   }
 
-  public handlerClickDeleteBtn(idCourse: string): void {
+  public handlerClickDeleteBtn(idCourse: number): void {
     const isDeleteCourse: boolean = window.confirm('Do you really want to delete this course?');
     if (isDeleteCourse) {
-      this.coursesService.removeCourse(idCourse);
-      this.loadCourses();
+      this.coursesService.removeCourse(idCourse).subscribe(() => {
+        this.loadCourses();
+      });
     }
   }
 
   public handlerClickSearchBtn(searchInputText: string): void {
-    this.coursesListView = this.searchPipe.transform(this.coursesList, searchInputText);
+    this.loadCourses(searchInputText);
   }
+
+  public handlerClickLoadMoreBtn(): void {
+    this.pageNumber += 1;
+    this.loadCourses();
+  }
+
 }

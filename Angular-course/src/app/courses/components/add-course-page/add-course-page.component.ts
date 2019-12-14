@@ -10,6 +10,18 @@ import { Routes } from 'src/app/core/enums/routes.enum';
   styleUrls: ['./add-course-page.component.scss']
 })
 export class AddCoursePageComponent implements OnInit {
+  public course: ICourse = {
+    id: null,
+    name: '',
+    date: '',
+    length: null,
+    description: '',
+    authors: {
+      id: null,
+      name: ''
+    },
+    isTopRated: false
+  };
 
   constructor(
     private router: Router,
@@ -19,9 +31,10 @@ export class AddCoursePageComponent implements OnInit {
   ngOnInit() {
   }
 
-  public handlerClickSubmitBtn(courseData: ICourse): void {
-    this.coursesService.createCourse(courseData);
-    this.router.navigateByUrl(Routes.COURSES);
+  public handlerClickSubmitBtn(course: ICourse): void {
+    this.coursesService.createCourse(course).subscribe(() => {
+      this.router.navigateByUrl(Routes.COURSES);
+    });
   }
 
   public handlerClickCancelBtn(): void {

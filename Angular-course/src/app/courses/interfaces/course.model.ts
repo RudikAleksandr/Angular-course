@@ -1,9 +1,11 @@
+import { IAuthor } from './author.model';
+
 export interface ICourse {
-  id?: string;
-  isTopRated?: boolean;
-  title: string;
-  creationDate: string;
-  duration: number;
+  id: number;
+  name: string;
+  date: string;
+  length: number;
   description: string;
-  authors: string;
+  authors: IAuthor;
+  isTopRated: boolean;
 }

@@ -1,7 +1,8 @@
 <div class="edit-course-page">
     <h2 class="edit-course-page__title">Edit course</h2>
     <app-course-form
-      (clickSubmitButton)="handlerClickSubmitBtn($event)"
-      (clickCancelButton)="handlerClickCancelBtn()"
+      [course]="course"
+      (clickSubmitBtn)="handlerClickSubmitBtn($event)"
+      (clickCancelBtn)="handlerClickCancelBtn()"
     ></app-course-form>
 </div>

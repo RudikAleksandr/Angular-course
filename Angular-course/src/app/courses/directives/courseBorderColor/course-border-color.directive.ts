@@ -8,7 +8,7 @@ export class CourseBorderColorDirective {
 
   @Input('appCourseBorderColor') set borderColor(course: ICourse) {
     const currentDate: Date = new Date();
-    const creationDate: Date = new Date(course.creationDate);
+    const creationDate: Date = new Date(course.date);
     const twoWeeksAgoDate: Date = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 14);
     if (creationDate < currentDate && creationDate >= twoWeeksAgoDate) {
       this.renderer.setStyle(this.el.nativeElement, 'border', '2px solid #9BC837');

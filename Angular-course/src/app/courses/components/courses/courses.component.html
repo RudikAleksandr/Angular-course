@@ -3,8 +3,9 @@
         (clickSearchButton)="handlerClickSearchBtn($event)"
     ></app-courses-section-actions>
     <app-courses-list
-        [coursesList]="coursesListView"
+        [coursesList]="coursesList"
         (clickEditButton)="handlerClickEditBtn($event)"
         (clickDeleteButton)="handlerClickDeleteBtn($event)"
+        (clickLoadMoreButton)="handlerClickLoadMoreBtn()"
     ></app-courses-list>
 </section>

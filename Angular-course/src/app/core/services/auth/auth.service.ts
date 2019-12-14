@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IToken } from '../../interfaces/token.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,24 +16,24 @@ export class AuthService {
     private http: HttpClient,
   ) { }
 
-  public login(login: string, password: string): Observable<IToken> {
+  public login(login: string, password: string): Observable<string> {
     const url = `${Routes.SERVER_URL}${Routes.AUTH_LOGIN}`;
     return this.http.post<IToken>(url, { login, password }).pipe(
       map((data: IToken) => {
         this.saveTokenToLocalStorage(data.token);
-        return data;
+        return data.token;
       })
     );
-  }
-
-  public logout(): void {
-    this.removeTokenInLocalStorage();
   }
 
   public getUserInfo(): Observable<IUser> {
     const url = `${Routes.SERVER_URL}${Routes.AUTH_USERINFO}`;
     const token = this.getTokenFromLocalStorage();
     return this.http.post<IUser>(url, { token });
+  }
+
+  public logout(): void {
+    this.removeTokenInLocalStorage();
   }
 
   public isAuthenticated(): boolean {

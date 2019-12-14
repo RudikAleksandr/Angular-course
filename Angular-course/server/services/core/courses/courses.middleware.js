@@ -9,7 +9,7 @@ module.exports = (server) => {
 		let url_parts = url.parse(req.originalUrl, true),
 			query = url_parts.query,
 			from = query.start || 0,
-			to = +query.start + +query.count,
+			to = +from + +query.count,
 			sort = query.sort,
 			queryStr = query.query,
 			filter = query.filter,
@@ -53,6 +53,6 @@ module.exports = (server) => {
 		res.status(parseInt(query.code, 10)).send({message: 'Error'});
 	});
 
-	
+
 	return router;
 };

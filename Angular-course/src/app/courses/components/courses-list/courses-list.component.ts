@@ -10,6 +10,7 @@ export class CoursesListComponent implements OnInit {
   @Input() public coursesList: ICourse[];
   @Output() public clickDeleteButton: EventEmitter<string> = new EventEmitter<string>();
   @Output() public clickEditButton: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public clickLoadMoreButton: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -22,5 +23,9 @@ export class CoursesListComponent implements OnInit {
 
   public handlerClickDeleteBtn(idCourse: string): void {
     this.clickDeleteButton.emit(idCourse);
+  }
+
+  public handlerClickLoadMoreBtn(): void {
+    this.clickLoadMoreButton.emit();
   }
 }

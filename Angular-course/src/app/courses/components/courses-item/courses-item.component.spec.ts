@@ -9,9 +9,9 @@ describe('CoursesItemComponent', () => {
 
   const mockCourse: ICourse = {
     id: '1',
-    title: 'Angular',
-    creationDate: new Date(2019, 5, 15).toString(),
-    duration: 60,
+    name: 'Angular',
+    date: new Date(2019, 5, 15).toString(),
+    length: 60,
     description: 'description',
     isTopRated: false
   };

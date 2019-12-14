@@ -16,8 +16,8 @@ import { ICourse } from '../../interfaces/course.model';
 })
 export class CoursesItemComponent implements OnInit {
   @Input() public course: ICourse;
-  @Output() public clickDeleteButton: EventEmitter<string> = new EventEmitter<string>();
-  @Output() public clickEditButton: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public clickEditButton: EventEmitter<number> = new EventEmitter<number>();
+  @Output() public clickDeleteButton: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 

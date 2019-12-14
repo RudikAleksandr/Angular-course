@@ -11,7 +11,7 @@ import { Routes } from 'src/app/core/enums/routes.enum';
   styleUrls: ['./edit-course-page.component.scss']
 })
 export class EditCoursePageComponent implements OnInit {
-  private course: ICourse;
+  public course: ICourse;
 
   constructor(
     private router: Router,
@@ -24,15 +24,17 @@ export class EditCoursePageComponent implements OnInit {
     this.route.params.subscribe(this.handlerRouteParams.bind(this));
   }
 
-  private async handlerRouteParams({ id }): Promise<void> {
-    this.course = await this.coursesService.getCourseById(id);
-    this.breadcrumbsService.emitBreadcrumbsChangeEvent(this.course.title);
-    console.log(this.course);
+  private handlerRouteParams({ id }): void {
+    this.coursesService.getCourseById(id).subscribe((course: ICourse) => {
+      this.course = course;
+      this.breadcrumbsService.emitBreadcrumbsChangeEvent(course.name);
+    });
   }
 
   public handlerClickSubmitBtn(courseData: ICourse): void {
-    this.coursesService.updateCourse({...this.course, ...courseData});
-    this.router.navigateByUrl(Routes.COURSES);
+    this.coursesService.updateCourse({ ...this.course, ...courseData }).subscribe(() => {
+      this.router.navigateByUrl(Routes.COURSES);
+    });
   }
 
   public handlerClickCancelBtn(): void {

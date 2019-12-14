@@ -1,34 +1,46 @@
 import { Injectable } from '@angular/core';
 import { ICourse } from '../../interfaces/course.model';
-import { coursesList } from 'jsonMockData/coursesList';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Routes } from '../../../core/enums/routes.enum';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
+  private BASE_URL = `${Routes.SERVER_URL}${Routes.COURSES}`;
+  private COUNT_PAGE_COURSES = 4;
 
-  public async getCourses(): Promise<ICourse[]> {
-    return coursesList as ICourse[];
+  constructor(
+    private http: HttpClient
+  ) {}
+
+  public getCourses(pageNumber: number, textFragment: string = ''): Observable<ICourse[]> {
+    const params = {
+      textFragment,
+      count: `${this.COUNT_PAGE_COURSES * pageNumber}`,
+    };
+
+    return this.http.get<ICourse[]>(this.BASE_URL, { params });
   }
 
-  public async createCourse(course: ICourse): Promise<void> {
-    course.id = String(Math.random());
-    course.isTopRated = false;
-    coursesList.push(course);
+  public getCourseById(id: number): Observable<ICourse> {
+    const params = { id: `${id}` };
+    return this.http.get<ICourse[]>(this.BASE_URL, { params }).pipe(
+      map((courses: ICourse[]) => courses[0])
+    );
   }
 
-  public async getCourseById(id: string): Promise<ICourse> {
-    const foundCourse: object = coursesList.find((itemCourse: ICourse) => itemCourse.id === id);
-    return foundCourse as ICourse;
+  public createCourse(course: ICourse): Observable<ICourse> {
+    return this.http.post<ICourse>(this.BASE_URL, course);
   }
 
-  public async updateCourse(course: ICourse): Promise<void> {
-    const indexCourse: number = coursesList.findIndex((itemCourse: ICourse) => itemCourse.id === course.id);
-    coursesList[indexCourse] = course;
+  public updateCourse(course: ICourse): Observable<ICourse> {
+    return this.http.patch<ICourse>(`${this.BASE_URL}/${course.id}`, course);
   }
 
-  public async removeCourse(id: string): Promise<void> {
-    const indexCourse = coursesList.findIndex((itemCourse: ICourse) => itemCourse.id === id);
-    coursesList.splice(indexCourse, 1);
+  public removeCourse(id: number): Observable<object> {
+    return this.http.delete<object>(`${this.BASE_URL}/${id}`);
   }
 }

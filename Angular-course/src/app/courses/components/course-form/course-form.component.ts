@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { ICourse } from '../../interfaces/course.model';
 
 @Component({
@@ -7,13 +7,9 @@ import { ICourse } from '../../interfaces/course.model';
   styleUrls: ['./course-form.component.scss']
 })
 export class CourseFormComponent implements OnInit {
-  @Output() public clickSubmitButton: EventEmitter<ICourse> = new EventEmitter<ICourse>();
-  @Output() public clickCancelButton: EventEmitter<void> = new EventEmitter<void>();
-  public title: string;
-  public description: string;
-  public creationDate: string;
-  public duration: number;
-  public authors: string;
+  @Input() course: ICourse;
+  @Output() public clickSubmitBtn: EventEmitter<ICourse> = new EventEmitter<ICourse>();
+  @Output() public clickCancelBtn: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
 
@@ -21,17 +17,11 @@ export class CourseFormComponent implements OnInit {
   }
 
   public handlerClickSubmitBtn(): void {
-    this.clickSubmitButton.emit({
-      title: this.title,
-      description: this.description,
-      creationDate: this.creationDate,
-      duration: this.duration,
-      authors: this.authors
-    });
+    this.clickSubmitBtn.emit(this.course);
   }
 
   public handlerClickCancelBtn(): void {
-    this.clickCancelButton.emit();
+    this.clickCancelBtn.emit();
   }
 
 }

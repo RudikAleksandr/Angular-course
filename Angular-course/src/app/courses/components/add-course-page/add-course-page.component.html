@@ -1,7 +1,8 @@
 <div class="add-course-page">
   <h2 class="add-course-page__title">Add course</h2>
   <app-course-form
-    (clickSubmitButton)="handlerClickSubmitBtn($event)"
-    (clickCancelButton)="handlerClickCancelBtn()"
+    [course]="course"
+    (clickSubmitBtn)="handlerClickSubmitBtn($event)"
+    (clickCancelBtn)="handlerClickCancelBtn()"
   ></app-course-form>
 </div>
