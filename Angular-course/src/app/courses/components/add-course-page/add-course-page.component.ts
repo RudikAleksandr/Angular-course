@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces/course.model';
 import { Routes } from 'src/app/core/enums/routes.enum';
+import { LoadingService } from 'src/app/core/services/loading/loading.service';
 
 @Component({
   selector: 'app-add-course-page',
@@ -25,7 +26,8 @@ export class AddCoursePageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private coursesService: CoursesService
+    private coursesService: CoursesService,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class AddCoursePageComponent implements OnInit {
   public handlerClickSubmitBtn(course: ICourse): void {
     this.coursesService.createCourse(course).subscribe(() => {
       this.router.navigateByUrl(Routes.COURSES);
+      this.loadingService.setLoading(false);
     });
   }
 

@@ -4,6 +4,7 @@ import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces/course.model';
 import { BreadcrumbsService } from 'src/app/core/services/breadcrumbs/breadcrumbs.service';
 import { Routes } from 'src/app/core/enums/routes.enum';
+import { LoadingService } from 'src/app/core/services/loading/loading.service';
 
 @Component({
   selector: 'app-edit-course-page',
@@ -17,6 +18,7 @@ export class EditCoursePageComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private coursesService: CoursesService,
+    private loadingService: LoadingService,
     private breadcrumbsService: BreadcrumbsService
   ) { }
 
@@ -28,6 +30,7 @@ export class EditCoursePageComponent implements OnInit {
     this.coursesService.getCourseById(id).subscribe((course: ICourse) => {
       this.course = course;
       this.breadcrumbsService.emitBreadcrumbsChangeEvent(course.name);
+      this.loadingService.setLoading(false);
     });
   }
 

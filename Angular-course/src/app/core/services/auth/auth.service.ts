@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IToken } from '../../interfaces/token.model';
 import { EventEmitter } from '@angular/core';
+import { LoadingService } from '../loading/loading.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,12 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
+    private loadingService: LoadingService
   ) { }
 
   public login(login: string, password: string): Observable<string> {
     const url = `${Routes.SERVER_URL}${Routes.AUTH_LOGIN}`;
+    this.loadingService.setLoading(true);
     return this.http.post<IToken>(url, { login, password }).pipe(
       map((data: IToken) => {
         this.saveTokenToLocalStorage(data.token);
@@ -32,6 +35,7 @@ export class AuthService {
   public getUserInfo(): Observable<IUser> {
     const url = `${Routes.SERVER_URL}${Routes.AUTH_USERINFO}`;
     const token = this.getTokenFromLocalStorage();
+    this.loadingService.setLoading(true);
     return this.http.post<IUser>(url, { token });
   }
 
