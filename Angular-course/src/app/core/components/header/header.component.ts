@@ -18,11 +18,17 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.getUserInfo().subscribe(this.handlerUserInfo.bind(this));
+    if (this.isAuth()) {
+      this.loadUserInfo();
+    } else {
+      this.authService.getAuthUserEmitter().subscribe(this.loadUserInfo.bind(this));
+    }
   }
 
-  private handlerUserInfo(userInfo: IUser): void {
-    this.userInfo = userInfo;
+  private loadUserInfo(): void {
+    this.authService.getUserInfo().subscribe((userInfo: IUser) => {
+      this.userInfo = userInfo;
+    });
   }
 
   public isAuth(): boolean {

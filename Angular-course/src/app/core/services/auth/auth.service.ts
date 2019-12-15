@@ -5,12 +5,14 @@ import { Routes } from '../../enums/routes.enum';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IToken } from '../../interfaces/token.model';
+import { EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private keyTokenInLocalStorage = 'token';
+  private authUser: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     private http: HttpClient,
@@ -21,6 +23,7 @@ export class AuthService {
     return this.http.post<IToken>(url, { login, password }).pipe(
       map((data: IToken) => {
         this.saveTokenToLocalStorage(data.token);
+        this.authUser.emit();
         return data.token;
       })
     );
@@ -42,6 +45,10 @@ export class AuthService {
 
   public getToken(): string {
     return this.getTokenFromLocalStorage();
+  }
+
+  public getAuthUserEmitter(): EventEmitter<void> {
+    return this.authUser;
   }
 
   private saveTokenToLocalStorage(token: string): void {

@@ -5,7 +5,7 @@
             <a routerLink="" class="header__link-course">video course</a>
           </h1>
       </div>
-      <div class="header__user-info col">
+      <div class="header__user-info col" *ngIf="isAuth()">
         <span class="header__user-info_name">{{ userInfo?.name.first }}</span>
         <span class="header__user-info_name">{{ userInfo?.name.last }}</span>
       </div>
