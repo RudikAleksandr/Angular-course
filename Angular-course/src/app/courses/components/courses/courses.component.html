@@ -1,6 +1,6 @@
 <section class="courses">
     <app-courses-section-actions
-        (clickSearchButton)="handlerClickSearchBtn($event)"
+        (changeSearchText)="handlerChangeSearchText($event)"
     ></app-courses-section-actions>
     <app-courses-list
         [coursesList]="coursesList"

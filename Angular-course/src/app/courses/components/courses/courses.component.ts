@@ -43,7 +43,7 @@ export class CoursesComponent implements OnInit {
     }
   }
 
-  public handlerClickSearchBtn(searchInputText: string): void {
+  public handlerChangeSearchText(searchInputText: string): void {
     this.loadCourses(searchInputText);
   }
 
