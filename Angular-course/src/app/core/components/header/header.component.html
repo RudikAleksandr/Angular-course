@@ -5,6 +5,10 @@
             <a routerLink="" class="header__link-course">video course</a>
           </h1>
       </div>
+      <div class="header__user-info col">
+        <span class="header__user-info_name">{{ userInfo?.name.first }}</span>
+        <span class="header__user-info_name">{{ userInfo?.name.last }}</span>
+      </div>
       <div class="header__links col">
         <button
           class="header__btn-log-of"

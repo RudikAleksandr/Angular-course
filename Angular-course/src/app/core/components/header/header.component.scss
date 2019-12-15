@@ -21,6 +21,16 @@
     align-items: center;
   }
 
+  &__user-info {
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+  &__user-info_name {
+    margin-left: 10px;
+  }
+
   &__link-course {
     font-size: 0.5em;
   }
