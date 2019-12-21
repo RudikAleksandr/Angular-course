@@ -3,7 +3,7 @@ import { IUser } from '../../interfaces/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Routes } from '../../enums/routes.enum';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, finalize } from 'rxjs/operators';
 import { IToken } from '../../interfaces/token.model';
 import { EventEmitter } from '@angular/core';
 import { LoadingService } from '../loading/loading.service';
@@ -28,7 +28,8 @@ export class AuthService {
         this.saveTokenToLocalStorage(data.token);
         this.authUser.emit();
         return data.token;
-      })
+      }),
+      finalize(() => this.loadingService.setLoading(false))
     );
   }
 
@@ -36,7 +37,9 @@ export class AuthService {
     const url = `${Routes.SERVER_URL}${Routes.AUTH_USERINFO}`;
     const token = this.getTokenFromLocalStorage();
     this.loadingService.setLoading(true);
-    return this.http.post<IUser>(url, { token });
+    return this.http.post<IUser>(url, { token }).pipe(
+      finalize(() => this.loadingService.setLoading(false))
+    );
   }
 
   public logout(): void {

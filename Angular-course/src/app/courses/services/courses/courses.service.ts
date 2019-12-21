@@ -3,7 +3,7 @@ import { ICourse } from '../../interfaces/course.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Routes } from '../../../core/enums/routes.enum';
-import { map } from 'rxjs/operators';
+import { map, finalize } from 'rxjs/operators';
 import { LoadingService } from 'src/app/core/services/loading/loading.service';
 
 @Injectable({
@@ -25,29 +25,38 @@ export class CoursesService {
     };
 
     this.loadingService.setLoading(true);
-    return this.http.get<ICourse[]>(this.BASE_URL, { params });
+    return this.http.get<ICourse[]>(this.BASE_URL, { params }).pipe(
+      finalize(() => this.loadingService.setLoading(false))
+    );
   }
 
   public getCourseById(id: number): Observable<ICourse> {
     const params = { id: `${id}` };
     this.loadingService.setLoading(true);
     return this.http.get<ICourse[]>(this.BASE_URL, { params }).pipe(
-      map((courses: ICourse[]) => courses[0])
+      map((courses: ICourse[]) => courses[0]),
+      finalize(() => this.loadingService.setLoading(false))
     );
   }
 
   public createCourse(course: ICourse): Observable<ICourse> {
     this.loadingService.setLoading(true);
-    return this.http.post<ICourse>(this.BASE_URL, course);
+    return this.http.post<ICourse>(this.BASE_URL, course).pipe(
+      finalize(() => this.loadingService.setLoading(false))
+    );
   }
 
   public updateCourse(course: ICourse): Observable<ICourse> {
     this.loadingService.setLoading(true);
-    return this.http.patch<ICourse>(`${this.BASE_URL}/${course.id}`, course);
+    return this.http.patch<ICourse>(`${this.BASE_URL}/${course.id}`, course).pipe(
+      finalize(() => this.loadingService.setLoading(false))
+    );
   }
 
   public removeCourse(id: number): Observable<object> {
     this.loadingService.setLoading(true);
-    return this.http.delete<object>(`${this.BASE_URL}/${id}`);
+    return this.http.delete<object>(`${this.BASE_URL}/${id}`).pipe(
+      finalize(() => this.loadingService.setLoading(false))
+    );
   }
 }

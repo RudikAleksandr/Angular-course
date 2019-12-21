@@ -4,7 +4,6 @@ import { ICourse } from '../../interfaces/course.model';
 import { SearchPipe } from '../../pipes/search/search.pipe';
 import { Router } from '@angular/router';
 import { Routes } from 'src/app/core/enums/routes.enum';
-import { LoadingService } from 'src/app/core/services/loading/loading.service';
 
 @Component({
   selector: 'app-courses',
@@ -17,7 +16,6 @@ export class CoursesComponent implements OnInit {
   private pageNumber = 1;
 
   constructor(
-    private loadingService: LoadingService,
     private coursesService: CoursesService,
     private router: Router
   ) { }
@@ -29,7 +27,6 @@ export class CoursesComponent implements OnInit {
   private loadCourses(textFragment?: string): void {
     this.coursesService.getCourses(this.pageNumber, textFragment).subscribe((courses: ICourse[]) => {
       this.coursesList = courses;
-      this.loadingService.setLoading(false);
     });
   }
 
