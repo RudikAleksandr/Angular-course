@@ -7,7 +7,11 @@ import { CoursesModule } from './courses/courses.module';
 import { LoginModule } from './login/login.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthReducer } from './core/store/reducers/auth.reducer';
+import { AuthEffects } from './core/store/effects/auth.effects';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     CoursesModule,
     LoginModule,
     AppRouterModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({ auth: AuthReducer }),
+    EffectsModule.forRoot([AuthEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [
     {

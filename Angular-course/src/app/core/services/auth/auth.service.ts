@@ -3,71 +3,46 @@ import { IUser } from '../../interfaces/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Routes } from '../../enums/routes.enum';
 import { Observable } from 'rxjs';
-import { map, finalize } from 'rxjs/operators';
 import { IToken } from '../../interfaces/token.model';
-import { EventEmitter } from '@angular/core';
 import { LoadingService } from '../loading/loading.service';
+import { Store } from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private keyTokenInLocalStorage = 'token';
-  private authUser: EventEmitter<void> = new EventEmitter<void>();
+  private token: string;
 
   constructor(
     private http: HttpClient,
-    private loadingService: LoadingService
-  ) { }
+    private loadingService: LoadingService,
+    private store: Store<any>
+  ) {
+    this.store
+    .select(state => state.auth.token)
+    .subscribe((token) => {
+      this.token = token;
+    });
+   }
 
-  public login(login: string, password: string): Observable<string> {
+  public login(login: string, password: string): Observable<IToken> {
     const url = `${Routes.SERVER_URL}${Routes.AUTH_LOGIN}`;
     this.loadingService.setLoading(true);
-    return this.http.post<IToken>(url, { login, password }).pipe(
-      map((data: IToken) => {
-        this.saveTokenToLocalStorage(data.token);
-        this.authUser.emit();
-        return data.token;
-      }),
-      finalize(() => this.loadingService.setLoading(false))
-    );
+    return this.http.post<IToken>(url, { login, password });
   }
 
   public getUserInfo(): Observable<IUser> {
     const url = `${Routes.SERVER_URL}${Routes.AUTH_USERINFO}`;
-    const token = this.getTokenFromLocalStorage();
+    const token = this.getToken();
     this.loadingService.setLoading(true);
-    return this.http.post<IUser>(url, { token }).pipe(
-      finalize(() => this.loadingService.setLoading(false))
-    );
-  }
-
-  public logout(): void {
-    this.removeTokenInLocalStorage();
+    return this.http.post<IUser>(url, { token });
   }
 
   public isAuthenticated(): boolean {
-    return !!this.getTokenFromLocalStorage();
+    return !!this.token;
   }
 
   public getToken(): string {
-    return this.getTokenFromLocalStorage();
+    return this.token;
   }
-
-  public getAuthUserEmitter(): EventEmitter<void> {
-    return this.authUser;
-  }
-
-  private saveTokenToLocalStorage(token: string): void {
-    localStorage.setItem(this.keyTokenInLocalStorage, token);
-  }
-
-  private getTokenFromLocalStorage(): string {
-    return localStorage.getItem(this.keyTokenInLocalStorage);
-  }
-
-  private removeTokenInLocalStorage(): void {
-    localStorage.removeItem(this.keyTokenInLocalStorage);
-  }
-
 }

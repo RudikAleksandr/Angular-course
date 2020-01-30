@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Routes } from '../../enums/routes.enum';
 import { IUser } from '../../interfaces/user.model';
+import { GetUserInfoAction, LogoutAction } from '../../store/actions/auth.actions';
 
 @Component({
   selector: 'app-header',
@@ -15,18 +17,19 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
+    private store: Store<any>
   ) { }
 
   ngOnInit() {
-    if (this.isAuth()) {
-      this.loadUserInfo();
-    } else {
-      this.authService.getAuthUserEmitter().subscribe(this.loadUserInfo.bind(this));
-    }
-  }
+    this.store.select(state => state.auth.token).subscribe((token: string) => {
+      if (token) {
+        this.store.dispatch(GetUserInfoAction({}));
+      } else {
+        this.userInfo = null;
+      }
+    });
 
-  private loadUserInfo(): void {
-    this.authService.getUserInfo().subscribe((userInfo: IUser) => {
+    this.store.select(state => state.auth.userInfo).subscribe((userInfo: IUser) => {
       this.userInfo = userInfo;
     });
   }
@@ -36,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public handlerClickLogOffBtn() {
-    this.authService.logout();
+    this.store.dispatch(LogoutAction({}));
     this.router.navigateByUrl(Routes.LOGIN);
   }
 }
