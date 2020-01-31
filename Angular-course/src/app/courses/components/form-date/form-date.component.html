@@ -1,0 +1,19 @@
+<form class="form">
+  <label>
+    Date:
+    <input
+      [formControl]="dateControl"
+      [value]="dateControl.value | date:'yyyy-MM-dd'"
+      (change)="onChange($event.target.value)"
+      type="date"
+      name="creationDate"
+      [ngClass]="dateControl.errors? 'validation-error' : ''"
+    >
+    <div
+      class="validation-block"
+      *ngIf="dateControl.errors && dateControl.touched"
+      i18n="Validation error|Validation error in date@@validationErrorDate">
+        This field is required and must be format mm/dd/yyyy
+    </div>
+  </label>
+</form>

@@ -1,27 +1,35 @@
 <div class="course-form">
-  <form class="course-form__form" *ngIf="course">
+  <form class="course-form__form" *ngIf="course" (submit)="handlerClickSubmitBtn()" [formGroup]="courseForm">
     <div class="form-group">
-      <label for="courseTitle">Title:</label>
-      <input type="text" class="form-control" id="courseTitle" [(ngModel)]="course.name" name="name">
+      <label for="courseTitle">Title:
+      <input type="text" class="form-control" [ngClass]="controls.title.errors? 'validation-error' : ''" id="courseTitle" [formControl]="titleControl" name="title">
+      <div
+        class="validation-block"
+        *ngIf="controls.title.errors && controls.title.touched">
+          This field is required and max length 50 symbols
+      </div>
+      </label>
     </div>
     <div class="form-group">
-      <label for="courseDescription">Description:</label>
-      <textarea class="form-control" id="courseDescription" rows="3" [(ngModel)]="course.description" name="description"></textarea>
+      <label for="courseDescription">Description:
+        <textarea class="form-control" [ngClass]="controls.description.errors? 'validation-error' : ''" type="text"
+          name="description" [formControl]="descriptionControl"></textarea>
+        <div
+          class="validation-block"
+          *ngIf="controls.description.errors && controls.description.touched">
+            This field is required and max length 500 symbols
+        </div>
+      </label>
     </div>
-    <div class="form-group">
-        <label for="courseDate">Date:</label>
-        <input type="text" class="form-control" id="courseDate" [(ngModel)]="course.date" name="date">
-    </div>
-    <div class="form-group">
-        <label for="courseDuration">Duration:</label>
-        <input type="text" class="form-control course-form__duration" id="courseDuration" [(ngModel)]="course.length" name="length">
-        <span>{{ (course.length || 0) | duration }}</span>
-    </div>
+
+    <app-form-date [formControl]="dateControl"></app-form-date>
+    <app-form-duration [formControl]="lengthControl"></app-form-duration>
+
     <div class="form-group course-form__authors-group">
         <label for="courseAuthors">Authors:</label>
-        <input type="text" class="form-control" id="courseAuthors" [(ngModel)]="course.authors.name" name="authors">
+        <input type="text" class="form-control" id="courseAuthors" [formControl]="authorsControl" name="authors">
     </div>
-    <button type="submit" class="btn btn-primary" (click)="handlerClickSubmitBtn()">Submit</button>
+    <button [disabled]="courseForm.invalid" type="submit" class="btn btn-primary">Submit</button>
     <button class="course-form__btn-cancel btn btn-secondary" (click)="handlerClickCancelBtn()">Cancel</button>
   </form>
 </div>

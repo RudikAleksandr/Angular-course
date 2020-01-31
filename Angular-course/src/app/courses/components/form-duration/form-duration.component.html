@@ -1,0 +1,8 @@
+<div class="form-group">
+  <form class="form">>
+    <label for="courseDuration">Duration:</label>
+    <input type="text" [formControl]="lengthControl" [ngClass]="lengthControl.errors ? 'validation-error' : ''"
+      (change)="onChange($event.target.value)"  class="form-control course-form__duration" id="courseDuration"  name="duration">
+    <span>{{ lengthControl.value | duration }}</span>
+  </form>
+</div>

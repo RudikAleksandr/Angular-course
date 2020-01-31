@@ -1,15 +1,25 @@
 <div class="login content-min-height ">
   <div class="login__content">
-    <h2 class="login__title">Login</h2>
-    <div class="login__form">
-      <input type="text" class="login__text"
-         placeholder="login" [(ngModel)]="login">
-      <input type="text" class="login__text"
-        placeholder="password" [(ngModel)]="password">
-      <button class="login__bth-submit" [disabled]="!login || !password" (click)="handlerClickLoginBtn()">Log In</button>
-    </div>
-    <div class="login__footer">
-      <a class="login__forget-link" href="/login">Forgot Password?</a>
-    </div>
+    <form [formGroup]="authForm" class="form" (submit)="handlerClickLoginBtn()">
+      <h2 class="login__title">Login</h2>
+      <div class="login__form">
+        <input [ngClass]="controls.login.errors? 'validation-error' : ''" type="text" [formControl]="loginControl" placeholder="login" name="login">
+        <div
+          class="validation-block"
+          *ngIf="controls.login.errors && controls.login.touched">
+          This field is required
+        </div>
+        <input [ngClass]="controls.password.errors? 'validation-error' : ''" type="text" placeholder="password" [formControl]="passwordControl" name="password">
+        <div
+          class="validation-block"
+          *ngIf="controls.password.errors && controls.password.touched" >
+          This field is required
+        </div>
+        <button class="login__bth-submit" type="submit">Log In</button>
+      </div>
+      <div class="login__footer">
+        <a class="login__forget-link" href="/login">Forgot Password?</a>
+      </div>
+    </form>
   </div>
 </div>
