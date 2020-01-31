@@ -1,18 +1,18 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { LoginAction, SaveUserInfoAction, LogoutAction } from '../actions/auth.actions';
+import { LoginRequest, StoreUserInfo, LogoutAction } from '../actions/auth.actions';
 
 const initialState = {
   token: ''
 };
 
 const authReducer = createReducer(initialState,
-  on(LoginAction, (state, props) => {
+  on(LoginRequest, (state, props) => {
     return {
       ...state,
       token: props.token
     };
   }),
-  on(SaveUserInfoAction, (state, props) => {
+  on(StoreUserInfo, (state, props) => {
     return {
       ...state,
       userInfo: props.userInfo

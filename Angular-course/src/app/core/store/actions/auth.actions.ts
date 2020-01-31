@@ -2,28 +2,28 @@ import { createAction, props } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
 import { IUser } from '../../interfaces/user.model';
 
-export const AuthAction = createAction(
-  '[CoreModule] AuthAction',
+export const AuthRequest = createAction(
+  '[CoreModule] AuthRequest',
   props<{login: string, password: string }>(),
 );
 
-export const GetUserInfoAction = createAction(
-  '[CoreModule] GetUserInfoAction',
+export const LoadUserInfoRequest = createAction(
+  '[CoreModule] LoadUserInfoRequest',
   props(),
 );
 
-export const SaveUserInfoAction = createAction(
-  '[CoreModule] SaveUserInfoAction',
+export const StoreUserInfo = createAction(
+  '[CoreModule] StoreUserInfo',
   props<{userInfo: IUser}>(),
 );
 
-export const LoginAction = createAction(
-  '[CoreModule] LoginAction',
+export const LoginRequest = createAction(
+  '[CoreModule] LoginRequest',
   props<{token: string }>(),
 );
 
-export const LoginFailedAction = createAction(
-  '[CoreModule] LoginFailedAction',
+export const LoginFailed = createAction(
+  '[CoreModule] LoginFailed',
   props<{error: HttpErrorResponse }>(),
 );
 

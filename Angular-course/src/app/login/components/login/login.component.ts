@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IToken } from '../../../core/interfaces/token.model';
-import { AuthAction } from 'src/app/core/store/actions/auth.actions';
+import { AuthRequest } from 'src/app/core/store/actions/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   public handlerClickLoginBtn(): void {
-    this.store.dispatch(AuthAction({ login: this.login, password: this.password }));
+    this.store.dispatch(AuthRequest({ login: this.login, password: this.password }));
   }
 }

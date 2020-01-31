@@ -25,38 +25,27 @@ export class CoursesService {
     };
 
     this.loadingService.setLoading(true);
-    return this.http.get<ICourse[]>(this.BASE_URL, { params }).pipe(
-      finalize(() => this.loadingService.setLoading(false))
-    );
+    return this.http.get<ICourse[]>(this.BASE_URL, { params });
   }
 
-  public getCourseById(id: number): Observable<ICourse> {
+  public getCourseById(id: number): Observable<ICourse[]> {
     const params = { id: `${id}` };
     this.loadingService.setLoading(true);
-    return this.http.get<ICourse[]>(this.BASE_URL, { params }).pipe(
-      map((courses: ICourse[]) => courses[0]),
-      finalize(() => this.loadingService.setLoading(false))
-    );
+    return this.http.get<ICourse[]>(this.BASE_URL, { params });
   }
 
   public createCourse(course: ICourse): Observable<ICourse> {
     this.loadingService.setLoading(true);
-    return this.http.post<ICourse>(this.BASE_URL, course).pipe(
-      finalize(() => this.loadingService.setLoading(false))
-    );
+    return this.http.post<ICourse>(this.BASE_URL, course);
   }
 
   public updateCourse(course: ICourse): Observable<ICourse> {
     this.loadingService.setLoading(true);
-    return this.http.patch<ICourse>(`${this.BASE_URL}/${course.id}`, course).pipe(
-      finalize(() => this.loadingService.setLoading(false))
-    );
+    return this.http.patch<ICourse>(`${this.BASE_URL}/${course.id}`, course);
   }
 
   public removeCourse(id: number): Observable<object> {
     this.loadingService.setLoading(true);
-    return this.http.delete<object>(`${this.BASE_URL}/${id}`).pipe(
-      finalize(() => this.loadingService.setLoading(false))
-    );
+    return this.http.delete<object>(`${this.BASE_URL}/${id}`);
   }
 }

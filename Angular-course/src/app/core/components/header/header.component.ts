@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Routes } from '../../enums/routes.enum';
 import { IUser } from '../../interfaces/user.model';
-import { GetUserInfoAction, LogoutAction } from '../../store/actions/auth.actions';
+import { LoadUserInfoRequest, LogoutAction } from '../../store/actions/auth.actions';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.store.select(state => state.auth.token).subscribe((token: string) => {
       if (token) {
-        this.store.dispatch(GetUserInfoAction({}));
+        this.store.dispatch(LoadUserInfoRequest({}));
       } else {
         this.userInfo = null;
       }

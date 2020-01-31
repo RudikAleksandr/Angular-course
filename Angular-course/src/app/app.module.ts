@@ -12,6 +12,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthReducer } from './core/store/reducers/auth.reducer';
 import { AuthEffects } from './core/store/effects/auth.effects';
+import { CoursesEffects } from './courses/store/effects/courses.effects';
+import { CoursesReducer } from './courses/store/reducers/courses.reducer';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,11 @@ import { AuthEffects } from './core/store/effects/auth.effects';
     LoginModule,
     AppRouterModule,
     HttpClientModule,
-    StoreModule.forRoot({ auth: AuthReducer }),
-    EffectsModule.forRoot([AuthEffects]),
+    StoreModule.forRoot({
+      auth: AuthReducer,
+      courses: CoursesReducer
+    }),
+    EffectsModule.forRoot([AuthEffects, CoursesEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CoursesService } from '../../services/courses/courses.service';
 import { ICourse } from '../../interfaces/course.model';
 import { BreadcrumbsService } from 'src/app/core/services/breadcrumbs/breadcrumbs.service';
 import { Routes } from 'src/app/core/enums/routes.enum';
+import { Store } from '@ngrx/store';
+import { LoadCourseByIdRequest, EditCourseRequest } from '../../store/actions/courses.actions';
+import { selectCourse } from '../../store/selectors/courses.selector';
 
 @Component({
   selector: 'app-edit-course-page',
@@ -16,25 +18,24 @@ export class EditCoursePageComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private coursesService: CoursesService,
-    private breadcrumbsService: BreadcrumbsService
+    private breadcrumbsService: BreadcrumbsService,
+    private store: Store<any>,
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(this.handlerRouteParams.bind(this));
-  }
-
-  private handlerRouteParams({ id }): void {
-    this.coursesService.getCourseById(id).subscribe((course: ICourse) => {
+    this.store.select(selectCourse).subscribe((course: ICourse) => {
       this.course = course;
       this.breadcrumbsService.emitBreadcrumbsChangeEvent(course.name);
     });
   }
 
+  private handlerRouteParams({ id }): void {
+    this.store.dispatch(LoadCourseByIdRequest({ id }));
+  }
+
   public handlerClickSubmitBtn(courseData: ICourse): void {
-    this.coursesService.updateCourse({ ...this.course, ...courseData }).subscribe(() => {
-      this.router.navigateByUrl(Routes.COURSES);
-    });
+    this.store.dispatch(EditCourseRequest({ course: courseData }));
   }
 
   public handlerClickCancelBtn(): void {
